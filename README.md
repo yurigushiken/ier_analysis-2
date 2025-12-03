@@ -16,7 +16,7 @@
 
 ### The Origins of Language
 
-The project investigates how pre-linguistic infants represent events (e.g., "giving" vs. "hugging") to determine if these concepts naturally undergird the acquisition of verb-argument structure in language.
+The project investigates how pre-linguistic infants represent events (e.g., "giving", "showing") to determine if these concepts naturally undergird the acquisition of verb-argument structure in language.
 
 ### Inspiration from "Home Signers"
 
