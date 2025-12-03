@@ -52,19 +52,49 @@ This pipeline addresses three core questions:
 ## Study Background
 
 ### Participants
-- **Infants**: 41 participants aged 7-11 months (stratified by month)
-- **Adults**: 13 adult controls (18+ years)
+- **Infants**: 48 child participants aged 7-11 months (stratified by month)
+- **Adults**: 15 adult participants (18+ years)
 
 ### Stimuli
-Naturalistic videos of dyadic social interactions:
-- **GIVE-with-toy** (primary condition): Person A hands object to Person B
+Video recordings of actors performing social interaction events:
+- **GIVE-with-toy**: Person A hands object to Person B
 - **SHOW-with-toy**: Person A shows object to Person B
+- **HUG**: Person A and Person B embrace
 - **GIVE-without-toy**: Giving gesture with empty hands (object absent)
-- **Upside-down GIVE** (control): Inverted version of Give events
+- **SHOW-without-toy**: Showing gesture without object present
+- **Inverted control videos**: Four upside-down versions (inverted GIVE-with-toy, GIVE-without-toy, HUG, SHOW-with-toy) to test whether gaze patterns reflect semantic understanding rather than low-level visual features
+
+### Areas of Interest (AOI) Coding System
+
+Infant gaze was coded frame-by-frame using a two-dimensional descriptor system (`What × Where`):
+
+**What dimension** (which entity):
+- `man`, `woman` - The two actors
+- `toy`, `toy2` - Object present or its location
+- `screen` - Screen but not a defined AOI
+- `no` - Off-screen
+
+**Where dimension** (which part):
+- `face` - Facial region
+- `body` - Torso/body region
+- `hands` - Hand region
+- `other` - Other location (e.g., toy position)
+- `signal` - Off-screen marker
+
+**AOI Categories**: These `(What, Where)` pairs map to semantic categories:
+- `woman_face`, `man_face` - Faces of the two actors
+- `woman_body`, `man_body` - Bodies of the two actors
+- `woman_hands`, `man_hands` - Hands of the two actors
+- `toy_present` - The object itself
+- `toy_location` - Where the object was or will be
+- `off_screen` - Gaze directed off-screen
+- `screen_nonAOI` - On-screen but not at a defined AOI
+
+This coding system allows the pipeline to track which event arguments (agents, recipients, objects) infants fixate during social interactions.
 
 ### Data Collection
 - Eye-tracking at 30 Hz (frame-level AOI coding)
-- Human-verified gaze coding (`What × Where` → AOI mapping)
+- Human-verified gaze coding with reliability checks
 - Minimum trial quality: ≥70% on-screen frames per participant×trial×condition
 
 ---
