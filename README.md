@@ -57,45 +57,40 @@ This pipeline addresses three core questions:
 
 ### Stimuli
 Video recordings of actors performing social interaction events:
+
+**Upright videos**:
 - **GIVE-with-toy**: Person A hands object to Person B
+- **GIVE-without-toy**: Giving gesture with empty hands
+- **HUG-with-toy**: Person A and Person B embrace while holding object
+- **HUG-without-toy**: Person A and Person B embrace
 - **SHOW-with-toy**: Person A shows object to Person B
-- **HUG**: Person A and Person B embrace
-- **GIVE-without-toy**: Giving gesture with empty hands (object absent)
 - **SHOW-without-toy**: Showing gesture without object present
-- **Inverted control videos**: Four upside-down versions (inverted GIVE-with-toy, GIVE-without-toy, HUG, SHOW-with-toy) to test whether gaze patterns reflect semantic understanding rather than low-level visual features
+- **FLOATING-toy**: Object moves without human interaction
+
+**Inverted control videos** (to test semantic vs. low-level visual processing):
+- Upside-down versions of: GIVE-with-toy, GIVE-without-toy, HUG-with-toy, HUG-without-toy
 
 ### Areas of Interest (AOI) Coding System
 
-Infant gaze was coded frame-by-frame using a two-dimensional descriptor system (`What × Where`):
-
-**What dimension** (which entity):
-- `man`, `woman` - The two actors
-- `toy`, `toy2` - Object present or its location
-- `screen` - Screen but not a defined AOI
-- `no` - Off-screen
-
-**Where dimension** (which part):
-- `face` - Facial region
-- `body` - Torso/body region
-- `hands` - Hand region
-- `other` - Other location (e.g., toy position)
-- `signal` - Off-screen marker
-
-**AOI Categories**: These `(What, Where)` pairs map to semantic categories:
-- `woman_face`, `man_face` - Faces of the two actors
-- `woman_body`, `man_body` - Bodies of the two actors
-- `woman_hands`, `man_hands` - Hands of the two actors
-- `toy_present` - The object itself
-- `toy_location` - Where the object was or will be
-- `off_screen` - Gaze directed off-screen
-- `screen_nonAOI` - On-screen but not at a defined AOI
+Infant gaze was coded frame-by-frame into the following AOI categories:
+- `man_face` - Face of the male actor
+- `woman_face` - Face of the female actor
+- `man_body` - Body of the male actor
+- `woman_body` - Body of the female actor
+- `man_hands` - Hands of the male actor
+- `woman_hands` - Hands of the female actor
+- `toy_present` - The object itself (when present)
+- `toy_location` - Where the object was or will be (when object is absent)
 
 This coding system allows the pipeline to track which event arguments (agents, recipients, objects) infants fixate during social interactions.
 
-### Data Collection
-- Eye-tracking at 30 Hz (frame-level AOI coding)
-- Human-verified gaze coding with reliability checks
-- Minimum trial quality: ≥70% on-screen frames per participant×trial×condition
+### Analysis Parameters
+
+The analyses presented here use the **min3-50_percent** dataset:
+- **min3**: A fixation is defined as ≥3 consecutive frames on the same AOI
+- **50_percent**: Only trials where the participant looked on-screen for ≥50% of frames are included
+
+This ensures data quality while maintaining sufficient statistical power.
 
 ---
 
