@@ -68,7 +68,10 @@ Video recordings of actors performing social interaction events:
 - **FLOATING-toy**: Object moves without human interaction
 
 **Inverted control videos** (to test semantic vs. low-level visual processing):
-- Upside-down versions of: GIVE-with-toy, GIVE-without-toy, HUG-with-toy, HUG-without-toy
+- **Inverted GIVE-with-toy**: Upside-down version of GIVE-with-toy
+- **Inverted GIVE-without-toy**: Upside-down version of GIVE-without-toy
+- **Inverted HUG-with-toy**: Upside-down version of HUG-with-toy
+- **Inverted HUG-without-toy**: Upside-down version of HUG-without-toy
 
 ### Areas of Interest (AOI) Coding System
 
