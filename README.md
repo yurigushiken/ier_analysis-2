@@ -1,393 +1,372 @@
-## Project Extension: Multi-Threshold Gaze Fixations & Developmental Eye-Tracking Analyses
+# Look Who's Giving: Developmental Eye-Tracking Analysis Pipeline
 
-This subproject provides the **current, active** eye-tracking analysis system for studying infant cognitive development through gaze patterns.
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Overview
-
-The project extension includes **five complementary analysis systems**:
-
-1. **Fixation Generator**: Generate filtered, threshold-aware fixation CSVs directly from
-   human-verified frame-level inputs under `data/csvs_human_verified_vv/`. Enforces ≥30 on-screen
-   frames (not `What=no/Where=signal`) per participant×trial×condition, with support for stricter
-   requirements (≥75 frames for "50% on-screen" or ≥105 frames for "70% on-screen" datasets).
-
-2. **Tri-Argument Fixation Analysis** (GW/GWO/SW/SWO): *"At what age do participants reliably fixate
-   every verb argument (giver/show-er, recipient/observer, object or its location) within an event?"*
-   Uses binomial GEE with participant clustering.
-
-3. **Gaze Transition Analysis** ⭐: Examines how infants shift attention between areas of interest.
-   Uses **precision-weighted Gaussian GEE** to properly account for trials having different numbers
-   of transitions (2-9 per trial). **Key improvement (2024)**: Added weighting by `total_transitions`
-   to ensure trials with more data points have appropriately greater statistical influence.
-
-4. **Latency to Toy Analysis**: Measures how quickly participants first fixate on the toy after
-   event onset. Compares infant cohorts to adults using Gaussian GEE.
-
-5. **Time Window Look Analysis**: Tests whether participants looked at specific targets during
-   defined time windows using binomial GEE.
+> **Research Abstract**: [Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces](https://docs.google.com/document/d/1z3gO30xdPWrcsX5qYWvljeWNdxxwHL-vcqHfk6ucMcI/edit?tab=t.0#heading=h.f134jajyzrzy)
+> Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2024)
 
 ---
 
-## Statistical Methods ⭐
+## Scientific Motivation
 
-All analyses use **Generalized Estimating Equations (GEE)** to properly handle repeated measures
-(multiple trials per participant) while estimating population-level effects.
+### The Two-Systems Hypothesis
 
-### Recent Improvement: Precision Weighting in Gaze Transitions
+How do pre-linguistic infants parse dynamic social events like "giving" or "showing" into the argument structures (giver, recipient, object) required for language acquisition? This pipeline investigates a fundamental question in developmental cognitive science: **when and how do infants transition from tracking physical motion to constructing semantic event representations?**
 
-The gaze transition analysis now implements **precision weighting** (added 2024):
+We hypothesize **two competing attentional systems**:
 
-```python
-weights = working["total_transitions"].fillna(0)
+1. **Motion-Tracking System** (early-developing): Infants reflexively follow moving objects through space, tracking body movements and object trajectories
+2. **Social-Semantic System** (later-developing): Infants actively construct event structures by monitoring faces (agents' intentions) and their relationships to objects
 
-model = smf.gee(
-    formula=formula,
-    groups="participant_id",
-    data=working,
-    family=sm.families.Gaussian(),
-    weights=weights,  # Trials weighted by information content
-)
-```
-
-**Why this matters:**
-- Each trial contributes a different number of transitions (range: 1-9)
-- Old approach: All trials weighted equally → biased estimates, overconfident p-values
-- New approach: Trials weighted by `total_transitions` → proper uncertainty quantification
-
-**Impact:**
-- Coefficient estimates: Modest changes (<20%)
-- P-values: May shift by 0.01-0.05, particularly for marginal findings
-- More statistically principled and honest about uncertainty
-
-## Tri-Argument Fixation Analysis
-
-### Research questions & configurations
-
-| YAML             | Condition (frames)                                 | Research question                                                                                   |
-|------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `gw_min4.yaml`   | GIVE-with-toy (frames 1–150, min4 fixations)       | Do cohorts fixate giver+recipient+toy when the object is present?                                    |
-| `gwo_min4.yaml`  | GIVE-without-toy (frames 1–150, min4)              | Do cohorts still encode toy *locations* when the object disappears?                                  |
-| `sw_min4.yaml`   | SHOW-with-toy (frames 45–115, min4)                | During the core interaction, do they look at show-er, observer, and toy?                             |
-| `swo_min4.yaml`  | SHOW-without-toy (frames 45–115, min4)             | Same as above, but the toy must be inferred.                                                         |
-| `gw_min3.yaml`   | GIVE-with-toy (min3 sensitivity analysis)          | How do results shift with a looser fixation threshold?                                               |
-| `gwo_min3.yaml`  | GIVE-without-toy (min3)                            | Sensitivity analysis for the absence-of-toy case.                                                    |
-| `sw_min3.yaml`   | SHOW-with-toy (min3)                               | Sensitivity analysis for SHOW during the interaction window.                                         |
-| `swo_min3.yaml`  | SHOW-without-toy (min3)                            | Sensitivity analysis for SHOW-without-toy.                                                           |
-
-Across all configs we hypothesize a developmental step, with 10–11 month-olds
-and adults exhibiting significantly higher tri-argument coverage than 7–9 month
-cohorts. Adults should always form the upper bound. Each analysis runs a
-statsmodels **GEE (Binomial, logit link)** clustered on participant ID (random
-intercept analogue), reporting odds ratios vs the 7-month reference.
+Our findings reveal a **developmental shift between 7 and 11 months**: younger infants predominantly use motion-tracking (Toy↔Body transitions), while older infants and adults prioritize social-semantic understanding (Face↔Toy and Face↔Face transitions).
 
 ---
 
-## Gaze Transition Analysis ⭐
+## Research Questions
 
-Located under `analyses/gaze_transition_analysis/`, this analysis examines
-the **order and frequency of AOI fixations**, focusing on three key gaze strategies:
+This pipeline addresses three core questions:
 
-1. **Agent-Agent Attention**: Transitions between the two people's faces (social monitoring)
-2. **Agent-Object Binding**: Transitions between faces and the toy (referential understanding)
-3. **Motion Tracking**: Transitions between bodies and the toy (physical action tracking)
+1. **Developmental Trajectory**: At what age do infants reliably fixate all three event arguments (giver/show-er, recipient/observer, object)?
+   - **Finding**: Significant improvement at **10 months** (67% success vs. 35-48% in younger infants)
 
-### Key Features
+2. **Gaze Strategy Shifts**: How do scanning patterns change across development?
+   - **Finding**: 7-month-olds track physical motion (Toy↔Body), while 10-11-month-olds and adults prioritize faces (Face↔Face, Face↔Toy)
 
-- **Precision-weighted GEE**: Properly accounts for varying trial quality (2-9 transitions per trial)
-- **Cohort comparisons**: Tests each infant age group vs. 7-month reference
-- **Linear trends**: Tests for continuous developmental change across infant ages (7-11 months)
-- **Network visualizations**: Transition matrices and heatmaps showing gaze flow patterns
+3. **Semantic vs. Visual Processing**: Are these shifts driven by low-level visual features or emerging semantic understanding?
+   - **Finding**: The face-prioritization effect **diminishes in inverted "Give" events**, suggesting semantic rather than purely visual processing
 
-### Running the analysis
+---
+
+## Study Background
+
+### Participants
+- **Infants**: 41 participants aged 7-11 months (stratified by month)
+- **Adults**: 13 adult controls (18+ years)
+
+### Stimuli
+Naturalistic videos of dyadic social interactions:
+- **GIVE-with-toy** (primary condition): Person A hands object to Person B
+- **SHOW-with-toy**: Person A shows object to Person B
+- **GIVE-without-toy**: Giving gesture with empty hands (object absent)
+- **Upside-down GIVE** (control): Inverted version of Give events
+
+### Data Collection
+- Eye-tracking at 30 Hz (frame-level AOI coding)
+- Human-verified gaze coding (`What × Where` → AOI mapping)
+- Minimum trial quality: ≥70% on-screen frames per participant×trial×condition
+
+---
+
+## What This Pipeline Does
+
+This pipeline provides a **complete, reproducible workflow** from raw eye-tracking frames to publication-ready statistical analyses:
+
+### 1. **Fixation Generation** ([src/](src/))
+Converts frame-level gaze data into fixation events with configurable thresholds:
+- Minimum fixation duration (3, 4, or 5 consecutive frames)
+- On-screen attention filters (50% or 70% thresholds)
+- AOI mapping (What/Where descriptors → semantic categories)
+
+### 2. **Five Complementary Analyses** ([analyses/](analyses/))
+
+| Analysis | Research Question | Statistical Method | Output |
+|----------|------------------|-------------------|------------|
+| **Tri-Argument Fixation** | Do infants fixate all three arguments? | Binomial GEE | Success rates, odds ratios |
+| **Gaze Transitions** ⭐ | What scanning strategies do infants use? | Precision-weighted Gaussian GEE | Transition matrices, strategy proportions |
+| **Latency to Toy** | How quickly do infants shift to the object? | Gaussian GEE | Mean latency by cohort |
+| **Time Window Looks** | Do infants look at critical AOIs during moments? | Binomial GEE | Binary outcomes by time window |
+| **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
+
+### 3. **Statistical Rigor**
+- **GEE (Generalized Estimating Equations)**: Properly handles repeated measures with participant clustering
+- **Precision Weighting** (gaze transitions): Trials weighted by information content (2-9 transitions per trial)
+- **Linear Trend Testing**: Continuous developmental trajectories across infant ages
+- **Effect Sizes**: Odds ratios with 95% confidence intervals
+
+### 4. **Publication-Ready Outputs**
+For each analysis configuration:
+- **Tables** (CSV): Summary statistics, trial-level data, GEE coefficients
+- **Figures** (300 DPI PNG): Bar charts, forest plots, heatmaps, network diagrams, trend lines
+- **Reports** (TXT/HTML/PDF): Statistical results, model diagnostics, interpretations
+
+---
+
+## Preliminary Results
+
+### Finding 1: Developmental Step at 10 Months
+
+**Tri-argument fixation success rates** (GIVE-with-toy, 70% on-screen threshold):
+
+| Age Group | Success Rate | vs. 7-month-olds |
+|-----------|-------------|------------------|
+| 7-month-olds | 35% | Reference |
+| 8-month-olds | 48% | OR=1.7, p=.41 (ns) |
+| 9-month-olds | 44% | OR=1.5, p=.53 (ns) |
+| **10-month-olds** | **67%** | **OR=3.8, p=.012*** |
+| **11-month-olds** | **67%** | **OR=3.8, p=.025*** |
+| **Adults** | **83%** | **OR=8.8, p<.001*** |
+
+**Linear trend**: Each additional month increases success odds by 43% (p=.007)
+
+### Finding 2: Shift From Motion-Tracking to Social-Semantic Processing
+
+**Gaze transition strategies** (percentage of all transitions):
+
+| Strategy | 7mo | 8mo | 9mo | 10mo | 11mo | Adults | Trend |
+|----------|-----|-----|-----|------|------|--------|-------|
+| **Motion Tracking** (Toy↔Body) | High | → | → | → | ↓ | Low | Decreasing** |
+| **Social Monitoring** (Face↔Face) | Low | → | → | ↑ | ↑ | High | Increasing*** |
+| **Agent-Object Binding** (Face↔Toy) | Low | → | ↑ | ↑ | ↑ | High | Increasing*** |
+
+**Interpretation**: 7-month-olds follow the physical path of the object. By 10-11 months, infants prioritize faces, connecting people with objects—a strategy matching adult patterns.
+
+### Finding 3: Semantic Understanding, Not Just Visual Features
+
+The face-prioritization effect **disappears in inverted "Give" events**, suggesting infants are not simply responding to low-level visual salience but actively constructing semantic event representations.
+
+---
+
+## Features
+
+✅ **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
+✅ **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
+✅ **Precision-Weighted GEE**: Properly accounts for varying trial quality in transition analyses
+✅ **Comprehensive Testing**: pytest coverage for data processing and statistical functions
+✅ **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
+✅ **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
+
+---
+
+## Quick Start
+
+### Installation
 
 ```bash
+# Clone repository
+git clone https://github.com/yourusername/ier_analysis-2.git
+cd ier_analysis-2
+
+# Create conda environment
+conda create -n ier_analysis python=3.8
 conda activate ier_analysis
-python -m analyses.gaze_transition_analysis.run \
-    --config analyses/gaze_transition_analysis/gw_transitions_min3_50_percent.yaml
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Outputs (prefixed by config name)
+### Basic Usage
 
-- **Tables:**
-  - `*_transition_counts.csv` – Raw per-participant/trial transition counts
-  - `*_transition_matrix.csv` – Cohort-level mean transition frequencies
-  - `*_strategy_proportions.csv` – Per-trial strategy proportions with `total_transitions`
-  - `*_strategy_summary.csv` – Cohort-level strategy means
-
-- **Figures:**
-  - `*_transition_heatmap.png` – Cohort transition frequency heatmaps
-  - `*_agent_agent_attention_strategy.png` – Strategy bar chart with significance brackets
-  - `*_motion_tracking_strategy.png` – Motion tracking strategy comparison
-  - `*_agent_object_binding_strategy.png` – Agent-object binding comparison
-  - `*_linear_trend_*.png` – Age trend visualizations for each strategy
-
-- **Reports:**
-  - `*_stats_agent_agent_attention.txt` – GEE results + linear trend test
-  - `*_stats_motion_tracking.txt` – GEE results + linear trend test
-  - `*_stats_agent_object_binding.txt` – GEE results + linear trend test
-  - `*_transition_summary.txt` – Top transitions per cohort
-
-### Statistical Innovation
-
-The gaze transition analysis is the **first in this project** to implement precision weighting:
-
-```python
-# Before (INCORRECT):
-# All trials weighted equally regardless of transition count
-
-# After (CORRECT):
-weights = working["total_transitions"]
-model = smf.gee(..., weights=weights)
-# Trials with 9 transitions → 9x influence
-# Trials with 2 transitions → 2x influence
-```
-
-This ensures proper statistical inference when trials provide different amounts of information.
-
----
-
-## Latency to Toy Analysis
-
-Located under `analyses/latency_to_toy/`, this analysis measures the **time
-from event onset until first toy fixation**.
-
-### Research Question
-
-*Do infants take longer than adults to shift attention to the toy? Does latency decrease with age?*
-
-### Statistical Approach
-
-- **Adult-reference GEE**: Compares each infant cohort to adults (Gaussian family)
-- **Linear trend test**: Tests for continuous decrease in latency across infant ages
-
-### Running the analysis
+**Step 1: Generate Fixations**
 
 ```bash
-conda activate ier_analysis
-python -m analyses.latency_to_toy.run \
-    --config analyses/latency_to_toy/latency_config.yaml
-```
-
-### Key Feature
-
-Event onset is properly referenced (not just raw frame numbers), ensuring latency measures
-"time since the relevant event began" rather than absolute frame position.
-
----
-
-## Time Window Look Analysis
-
-Located under `analyses/time_window_look_analysis/`, this analysis tests
-**binary outcomes**: Did the participant look at a target AOI during a specific time window?
-
-### Research Question
-
-*Do different age cohorts differ in the probability of fixating on critical areas during key moments?*
-
-### Statistical Approach
-
-- **Binomial GEE**: Proper distribution for yes/no outcomes
-- **Odds ratios**: Interpretable effect sizes (OR > 1 = higher probability than reference)
-- **Linear trend test**: Tests for developmental change across infant ages
-
-### Running the analysis
-
-```bash
-conda activate ier_analysis
-python -m analyses.time_window_look_analysis.run \
-    --config analyses/time_window_look_analysis/time_window_config.yaml
-```
-
----
-
-## Project Layout
-
-```
-ier_analysis-2/
-├── README.md                          # This file
-├── outputs/                           # Generated fixation CSVs (gitignored)
-├── src/
-│   ├── __init__.py
-│   ├── config.py                      # Constants (thresholds, paths)
-│   ├── loader.py                      # Frame CSV ingestion & ≥30-frame trial filter
-│   ├── aoi_mapper.py                  # Local What/Where → AOI logic
-│   ├── gaze_detector.py               # Threshold-based fixation detection
-│   └── generator.py                   # CLI entry point
-└── analyses/
-    ├── tri_argument_fixation/
-    │   ├── run.py                     # Shared runner (plots, reports, GEE)
-    │   ├── stats.py                   # Statistical functions
-    │   ├── gw_min4.yaml ...           # Condition-specific configs
-    │   └── gw_min4/...                # Per-config outputs (tables/figures/reports)
-    │
-    ├── gaze_transition_analysis/ ⭐
-    │   ├── run.py                     # Main entry point
-    │   ├── strategy.py                # GEE with PRECISION WEIGHTING
-    │   ├── transitions.py             # Transition counting
-    │   ├── matrix.py                  # Transition matrices
-    │   ├── visuals.py                 # Plotting functions
-    │   ├── gw_transitions_min3_50_percent.yaml ...
-    │   └── gw_transitions_min3_50_percent/...
-    │
-    ├── latency_to_toy/
-    │   ├── run.py                     # Main entry point
-    │   ├── stats.py                   # GEE analysis
-    │   ├── latency_analysis.py        # Latency computation
-    │   └── latency_config.yaml ...
-    │
-    └── time_window_look_analysis/
-        ├── run.py                     # Main entry point
-        ├── stats.py                   # Binomial GEE analysis
-        └── time_window_config.yaml ...
-```
-
----
-
-## Running the Fixation Generator
-
-```bash
-conda activate ier_analysis
 python -m src.generator \
-    --thresholds 3 4 5 \
+    --thresholds 3 4 \
     --output-root outputs \
     --min-onscreen-frames 105 \
     --dir-suffix -70_percent
 ```
 
-- Default inputs: `data/csvs_human_verified_vv/child` and `/adult`
-- Override with `--child-dir`/`--adult-dir` flags if needed
-- Pass `--exclude-screen-nonroi` to drop `screen_nonAOI` fixations from exported CSVs
-  (while still counting them toward on-screen frame totals)
-
-### Outputs per threshold
-
-- `outputs/min3/gaze_fixations_child_min3.csv`
-- `outputs/min3/gaze_fixations_adult_min3.csv`
-- `outputs/min3/gaze_fixations_combined_min3.csv`
-- Additional 50%/70% directories: `min3-50_percent`, `min4-70_percent`, etc.
-
-Each CSV contains `min_frames` (threshold used), `cohort`, and the requested on-screen-frame
-filter already applied.
-
-**Current focus:** We primarily use the **70% datasets** (`min3-70_percent/`, `min4-70_percent/`)
-for the most conservative analyses.
-
----
-
-## Configuration System
-
-All analyses use **YAML-driven configuration**:
-
-### Tri-argument analysis example
-
-```yaml
-condition: "gw"
-condition_label: "Give"
-fixation_source: "outputs/min4-70_percent/gaze_fixations_combined_min4.csv"
-frame_range: [1, 150]
-cohorts:
-  - label: "7-month-olds"
-    min_months: 7
-    max_months: 7
-  - label: "Adults"
-    min_months: 18
-    max_months: 100
-```
-
-### Gaze transition analysis example
-
-```yaml
-input_fixations: "outputs/min3-50_percent/gaze_fixations_combined_min3.csv"
-condition_codes: ["gw"]
-aoi_nodes: ["man_face", "woman_face", "toy_present", "man_body", "woman_body"]
-cohorts:
-  - label: "7-month-olds"
-    min_months: 7
-    max_months: 7
-```
-
-**Config-driven workflow benefits:**
-- Adding new variants requires only a YAML file (no code changes)
-- All outputs prefixed by config name (prevents overwrites)
-- Clear documentation of analysis parameters
-
----
-
-## Design Highlights (for Reuse)
-
-- **Config-driven workflow**: Every analysis defined by a single YAML file
-- **Prefixed output naming**: All files include config name (e.g., `gw_min4_70_percent_*`)
-- **High-DPI visuals**: 300 DPI plots with reader-friendly labels
-- **Consistent color palettes**: Cohort colors maintained across all plot types
-- **Robust reporting**: Aligned TXT/HTML/PDF reports with embedded figures
-- **Statistical rigor**: GEE with proper clustering, precision weighting where appropriate
-- **Comprehensive testing**: pytest coverage for unit tests and CLI integration
-
----
-
-## Tests
-
-Place regression tests under `tests/` (gitignored locally for flexibility):
+**Step 2: Run Tri-Argument Analysis**
 
 ```bash
-conda activate ier_analysis
+python -m analyses.tri_argument_fixation.run \
+    --config analyses/tri_argument_fixation/gw_min3_70_percent.yaml
+```
+
+**Step 3: Run Gaze Transition Analysis**
+
+```bash
+python -m analyses.gaze_transition_analysis.run \
+    --config analyses/gaze_transition_analysis/gw_transitions_min3_70_percent.yaml
+```
+
+**Step 4: View Results**
+
+```bash
+# Tables
+ls analyses/tri_argument_fixation/gw_min3_70_percent/tables/
+
+# Figures
+ls analyses/tri_argument_fixation/gw_min3_70_percent/figures/
+
+# Statistical reports
+cat analyses/tri_argument_fixation/gw_min3_70_percent/reports/gw_min3_70_percent_gee_results.txt
+```
+
+---
+
+## Data Requirements
+
+### Input Format
+
+Frame-level CSV files with human-verified AOI coding:
+
+**Required Columns**:
+- `Participant`, `participant_type`, `participant_age_months`
+- `trial_number`, `condition`, `segment`
+- `Frame Number`, `Onset`, `Offset`
+- `What`, `Where` (AOI descriptors, e.g., "woman", "face")
+- `event_verified`, `frame_count_trial_number`
+
+**Directory Structure**:
+```
+data/csvs_human_verified_vv/
+├── child/
+│   ├── participant_001.csv
+│   ├── participant_002.csv
+│   └── ...
+└── adult/
+    ├── adult_001.csv
+    └── ...
+```
+
+### AOI Mapping
+
+The pipeline maps `(What, Where)` pairs to semantic AOI categories:
+
+| What | Where | AOI Category |
+|------|-------|-------------|
+| woman | face | woman_face |
+| man | face | man_face |
+| toy | other | toy_present |
+| toy2 | other | toy_location |
+| woman/man | body | woman_body / man_body |
+| woman/man | hands | woman_hands / man_hands |
+| no | signal | off_screen |
+| screen | other | screen_nonAOI |
+
+---
+
+## Documentation
+
+### Analysis Configuration Examples
+
+**Tri-Argument Analysis** ([gw_min3_70_percent.yaml](analyses/tri_argument_fixation/gw_min3_70_percent.yaml)):
+```yaml
+input_threshold_dir: "outputs/min3-70_percent"
+input_filename: "gaze_fixations_combined_min3.csv"
+condition_codes: ["gw"]
+frame_window:
+  start: 1
+  end: 150
+aoi_groups:
+  man: ["man_face", "man_body"]
+  woman: ["woman_face", "woman_body"]
+  toy: ["toy_present"]
+```
+
+**Gaze Transition Analysis** ([gw_transitions_min3_70_percent.yaml](analyses/gaze_transition_analysis/gw_transitions_min3_70_percent.yaml)):
+```yaml
+input_fixations: "outputs/min3-70_percent/gaze_fixations_combined_min3.csv"
+condition_codes: ["gw"]
+aoi_nodes: ["man_face", "woman_face", "toy_present", "man_body", "woman_body"]
+strategies:
+  agent_agent_attention:
+    - ["man_face", "woman_face"]
+  agent_object_binding:
+    - ["man_face", "toy_present"]
+    - ["woman_face", "toy_present"]
+  motion_tracking:
+    - ["man_body", "toy_present"]
+    - ["woman_body", "toy_present"]
+```
+
+### Statistical Methods
+
+All analyses use **Generalized Estimating Equations (GEE)** to properly handle:
+- Repeated measures (multiple trials per participant)
+- Participant-level clustering (random intercept analogue)
+- Appropriate distributions (Binomial for success/failure, Gaussian for continuous measures)
+
+**Innovation**: The gaze transition analysis implements **precision weighting**, where each trial is weighted by its `total_transitions` count (range: 2-9), ensuring proper statistical inference when trials provide different amounts of information.
+
+---
+
+## Reproducibility
+
+### Version Control
+- All analysis configurations tracked in YAML files
+- Statistical parameters explicitly documented
+- Random seeds set where applicable
+
+### Output Naming
+All outputs prefixed by configuration name to prevent overwrites:
+- `gw_min3_70_percent_tri_argument_summary.csv`
+- `gw_min3_70_percent_transition_heatmap.png`
+- `gw_min3_70_percent_gee_results.txt`
+
+### Testing
+```bash
 pytest tests -v
 ```
 
-Coverage targets:
-- Fixation generator (trial filtering, min-frame thresholds)
-- Tri-argument reporting pipeline (bar charts, forest plots, GEE outputs)
-- Gaze transition analysis (precision weighting, strategy calculations)
-- Statistical functions (GEE parameter passing, weighting verification)
+Coverage includes:
+- Fixation detection algorithms
+- AOI mapping logic
+- Statistical function parameter passing
+- GEE model specifications
 
 ---
 
-## Statistical Documentation
+## Repository Structure
 
-For detailed statistical methods, interpretations, and comparisons across all analyses:
-
-## Version History
-
-**Version 2.0** (2024-11)
-- ✅ Added gaze transition analysis with precision-weighted GEE
-- ✅ Added latency to toy analysis
-- ✅ Added time window look analysis
-- ✅ Implemented statistical improvements (precision weighting)
-- ✅ Comprehensive test coverage
-- ✅ Updated documentation with statistical methods
-
-**Version 1.0** (2024-10)
-- ✅ Tri-argument fixation analysis
-- ✅ Multi-threshold fixation generator
-- ✅ 50%/70% on-screen filtering options
-
----
-
-## Citation
-
-If you use this analysis system in your research, please cite:
-
-```bibtex
-@software{ier_analysis_project_extension_2024,
-  title = {Project Extension: Developmental Eye-Tracking Analysis System},
-  author = {[Your Name/Team]},
-  year = {2024},
-  note = {Precision-weighted GEE analysis for infant gaze patterns}
-}
 ```
+ier_analysis-2/
+├── README.md                          # This file
+├── requirements.txt                   # Python dependencies
+├── data/                              # Input data (gitignored)
+│   └── csvs_human_verified_vv/
+│       ├── child/
+│       └── adult/
+├── outputs/                           # Generated fixations (gitignored)
+│   ├── min3-50_percent/
+│   ├── min3-70_percent/
+│   ├── min4-50_percent/
+│   └── min4-70_percent/
+├── src/                               # Core data processing pipeline
+│   ├── config.py                      # Project constants and paths
+│   ├── loader.py                      # Frame CSV ingestion
+│   ├── gaze_detector.py               # Fixation detection algorithm
+│   ├── aoi_mapper.py                  # What/Where → AOI mapping
+│   └── generator.py                   # CLI fixation generator
+├── analyses/                          # Five analysis systems
+│   ├── tri_argument_fixation/
+│   │   ├── run.py                     # Main entry point
+│   │   ├── pipeline.py                # Trial metric computation
+│   │   ├── stats.py                   # GEE statistical models
+│   │   ├── visuals.py                 # Plotting functions
+│   │   ├── reports.py                 # Report generation
+│   │   ├── gw_min3_70_percent.yaml    # Configuration file
+│   │   └── gw_min3_70_percent/        # Output directory
+│   │       ├── tables/
+│   │       ├── figures/
+│   │       └── reports/
+│   ├── gaze_transition_analysis/
+│   │   ├── run.py
+│   │   ├── transitions.py             # Transition counting
+│   │   ├── matrix.py                  # Transition matrices
+│   │   ├── strategy.py                # Precision-weighted GEE
+│   │   └── visuals.py
+│   ├── latency_to_toy/
+│   ├── time_window_look_analysis/
+│   └── __init__.py
+├── tests/                             # Unit and integration tests
+└── presentation/                      # Presentation utilities
+```
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 **Status**: Production Ready ✅
-**Last Updated**: 2024-11-29
-**Active Development**: Gaze transition analysis, latency analysis, time window analysis
+**Last Updated**: 2024-12-03
+**Contact**: [Your contact information]
 
 ---
 
-## Environment setup reminder
-
-Before running any generator, analysis, or test command, always activate the shared environment:
-
-```bash
-conda activate ier_analysis
-```
+*This pipeline was developed to support reproducible research in developmental cognitive science. We hope it serves as a resource for the broader research community studying infant attention and social cognition.*

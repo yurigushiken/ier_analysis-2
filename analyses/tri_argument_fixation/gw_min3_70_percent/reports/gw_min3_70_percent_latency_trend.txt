@@ -1,0 +1,24 @@
+Processing-efficiency (latency) linear trend
+Infant range: 7–11 months
+Coefficient (ms/month): -120.606
+p-value: 0.0905
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:                  latency_ms   No. Observations:                   74
+Model:                                 GEE   No. clusters:                       35
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   4
+Family:                           Gaussian   Mean cluster size:                 2.1
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Wed, 03 Dec 2025   Scale:                      818819.491
+Covariance type:                    robust   Time:                         17:42:58
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept    3707.1076    661.419      5.605      0.000    2410.749    5003.466
+age_numeric  -120.6059     71.245     -1.693      0.090    -260.243      19.032
+==============================================================================
+Skew:                          0.3688   Kurtosis:                      -0.7415
+Centered skew:                 0.1855   Centered kurtosis:             -0.5878
+==============================================================================

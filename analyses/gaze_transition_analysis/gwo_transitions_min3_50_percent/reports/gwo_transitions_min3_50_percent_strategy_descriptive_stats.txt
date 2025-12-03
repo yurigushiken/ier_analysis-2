@@ -1,7 +1,0 @@
-Cohort,Agent_Agent_Attention,Agent_Object_Binding,Motion_Tracking
-10-month-olds,0.193,0.185,0.130
-11-month-olds,0.275,0.210,0.205
-7-month-olds,0.114,0.172,0.431
-8-month-olds,0.121,0.069,0.312
-9-month-olds,0.110,0.336,0.149
-Adults,0.235,0.352,0.229

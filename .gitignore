@@ -5,6 +5,19 @@ __pycache__/
 outputs/
 results/
 temp/
+analyses/gaze_transition_analysis/f_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/gwo_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/gw_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/gw_transitions_min3_70_percent/
+analyses/gaze_transition_analysis/gw_transitions_min4_50_percent/
+analyses/gaze_transition_analysis/gw_transitions_min4_70_percent/
+analyses/gaze_transition_analysis/hw_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/hwo_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/sw_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/sw_transitions_min4_50_percent/
+analyses/gaze_transition_analysis/swo_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/ugw_transitions_min3_50_percent/
+analyses/gaze_transition_analysis/ugw_transitions_min4_50_percent/
 
 # User-level assets
 presentation/event_structure_infants.pptx
