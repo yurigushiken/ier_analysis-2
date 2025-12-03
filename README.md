@@ -12,7 +12,7 @@
 
 ## Scientific Motivation
 
-*The following is adapted from Dr. Peter Gordon's project proposal for this research.*
+*The following 'scientific motivation' text is adapted from Dr. Peter Gordon's project proposal for this research.*
 
 ### The Origins of Language
 
