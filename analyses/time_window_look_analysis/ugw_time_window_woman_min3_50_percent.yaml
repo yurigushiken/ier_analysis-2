@@ -1,0 +1,31 @@
+input_fixations: "outputs/min3-50_percent/gaze_fixations_combined_min3.csv"
+condition_codes:
+  - "ugw"
+
+target_aoi:
+  - "woman_face"
+  - "woman_body"
+  - "woman_hands"
+window_start: 1
+window_end: 150
+
+cohorts:
+  - label: "7-month-olds"
+    min_months: 7
+    max_months: 7
+  - label: "8-month-olds"
+    min_months: 8
+    max_months: 8
+  - label: "9-month-olds"
+    min_months: 9
+    max_months: 9
+  - label: "10-month-olds"
+    min_months: 10
+    max_months: 10
+  - label: "11-month-olds"
+    min_months: 11
+    max_months: 11
+  - label: "Adults"
+    min_months: 216
+    max_months: 600
+

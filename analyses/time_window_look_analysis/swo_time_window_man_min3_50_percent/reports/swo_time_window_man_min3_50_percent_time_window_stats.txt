@@ -1,0 +1,53 @@
+Adult-reference GEE (looked_at_target)
+Reference cohort: Adults
+Participants: 62
+Trials: 200
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:            looked_at_target   No. Observations:                  200
+Model:                                 GEE   No. clusters:                       62
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   7
+Family:                           Binomial   Mean cluster size:                 3.2
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Sat, 29 Nov 2025   Scale:                           1.000
+Covariance type:                    robust   Time:                         22:17:36
+=============================================================================================================================
+                                                                coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------
+Intercept                                                     3.0910      0.679      4.554      0.000       1.761       4.421
+C(cohort, Treatment(reference='Adults'))[T.7-month-olds]     -2.1748      0.793     -2.741      0.006      -3.730      -0.620
+C(cohort, Treatment(reference='Adults'))[T.8-month-olds]     -1.9924      0.756     -2.635      0.008      -3.475      -0.510
+C(cohort, Treatment(reference='Adults'))[T.9-month-olds]     -1.7047      0.808     -2.111      0.035      -3.287      -0.122
+C(cohort, Treatment(reference='Adults'))[T.10-month-olds]    -2.1748      0.852     -2.554      0.011      -3.844      -0.506
+C(cohort, Treatment(reference='Adults'))[T.11-month-olds]    -2.1466      0.953     -2.253      0.024      -4.014      -0.279
+==============================================================================
+Skew:                         -1.2653   Kurtosis:                      -0.1314
+Centered skew:                -0.7231   Centered kurtosis:              0.9420
+==============================================================================
+
+Infant linear trend (looked_at_target)
+Infant age range: 7-11 months
+Coefficient (per month): -0.017
+p-value: 0.9236
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:            looked_at_target   No. Observations:                  154
+Model:                                 GEE   No. clusters:                       48
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   7
+Family:                           Binomial   Mean cluster size:                 3.2
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Sat, 29 Nov 2025   Scale:                           1.000
+Covariance type:                    robust   Time:                         22:17:36
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       1.1981      1.496      0.801      0.423      -1.733       4.130
+age_numeric    -0.0166      0.173     -0.096      0.924      -0.356       0.323
+==============================================================================
+Skew:                         -1.0957   Kurtosis:                      -0.7989
+Centered skew:                -0.6089   Centered kurtosis:              0.2686
+==============================================================================

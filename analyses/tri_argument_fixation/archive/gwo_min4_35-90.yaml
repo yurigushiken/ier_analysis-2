@@ -1,0 +1,45 @@
+input_threshold_dir: "outputs/min4"
+input_filename: "gaze_fixations_combined_min4.csv"
+condition_codes:
+  - "gwo"
+
+min_trials_per_participant: 2
+
+aoi_groups:
+  man:
+    - "man_face"
+    - "man_body"
+  woman:
+    - "woman_face"
+    - "woman_body"
+  toy_placeholder:
+    - "toy_location"
+
+cohorts:
+  - label: "7-month-olds"
+    min_months: 7
+    max_months: 7
+  - label: "8-month-olds"
+    min_months: 8
+    max_months: 8
+  - label: "9-month-olds"
+    min_months: 9
+    max_months: 9
+  - label: "10-month-olds"
+    min_months: 10
+    max_months: 10
+  - label: "11-month-olds"
+    min_months: 11
+    max_months: 11
+  - label: "Adults"
+    min_months: 216
+    max_months: 600
+
+report:
+  research_question: "Do participants fixate the giver, recipient, and toy location during frames 40–110 of GIVE-without-toy trials?"
+  hypothesis: "Infants younger than 10 months will fail to fixate all arguments within frames 40–110 more often than older infants and adults."
+  prediction: "10+ month infants and adults will show higher tri-argument fixation rates than 7–9 month infants even within this mid-trial window."
+frame_window:
+  start: 40
+  end: 110
+

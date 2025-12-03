@@ -1,0 +1,11 @@
+Research Question: During SHOW-with-toy events (50% on-screen trials), do cohorts fixate show-er, observer, and toy arguments?
+Hypothesis: Older infants and adults will more efficiently fixate all SHOW arguments than younger infants.
+Prediction: 10+ month infants and adults will show higher tri-argument coverage than 7–9 month infants.
+
+Results:
+- 7-month-olds: 10/28 trials (35.7% coverage, 8 participants)
+- 8-month-olds: 12/26 trials (46.2% coverage, 7 participants)
+- 9-month-olds: 8/33 trials (24.2% coverage, 10 participants)
+- 10-month-olds: 17/38 trials (44.7% coverage, 11 participants)
+- 11-month-olds: 16/29 trials (55.2% coverage, 8 participants)
+- Adults: 31/46 trials (67.4% coverage, 14 participants)

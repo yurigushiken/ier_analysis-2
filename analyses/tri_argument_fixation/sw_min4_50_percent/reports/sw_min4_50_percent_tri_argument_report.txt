@@ -1,0 +1,11 @@
+Research Question: During SHOW-with-toy events (min4 threshold, 50% on-screen trials), do cohorts fixate all three arguments?
+Hypothesis: Older infants and adults will reach tri-argument success faster than younger infants.
+Prediction: 10+ month infants and adults will outperform 7–9 month infants.
+
+Results:
+- 7-month-olds: 9/28 trials (32.1% coverage, 8 participants)
+- 8-month-olds: 10/26 trials (38.5% coverage, 7 participants)
+- 9-month-olds: 7/33 trials (21.2% coverage, 10 participants)
+- 10-month-olds: 16/38 trials (42.1% coverage, 11 participants)
+- 11-month-olds: 16/29 trials (55.2% coverage, 8 participants)
+- Adults: 28/46 trials (60.9% coverage, 14 participants)

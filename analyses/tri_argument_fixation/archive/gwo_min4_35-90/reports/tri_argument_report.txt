@@ -1,0 +1,11 @@
+Research Question: Do participants fixate the giver, recipient, and toy location during frames 40–110 of GIVE-without-toy trials?
+Hypothesis: Infants younger than 10 months will fail to fixate all arguments within frames 40–110 more often than older infants and adults.
+Prediction: 10+ month infants and adults will show higher tri-argument fixation rates than 7–9 month infants even within this mid-trial window.
+
+Results:
+- 7-month-olds: 5/35 trials (14.3% coverage, 8 participants)
+- 8-month-olds: 6/42 trials (14.3% coverage, 10 participants)
+- 9-month-olds: 10/48 trials (20.8% coverage, 11 participants)
+- 10-month-olds: 10/46 trials (21.7% coverage, 11 participants)
+- 11-month-olds: 7/39 trials (17.9% coverage, 9 participants)
+- Adults: 21/45 trials (46.7% coverage, 14 participants)

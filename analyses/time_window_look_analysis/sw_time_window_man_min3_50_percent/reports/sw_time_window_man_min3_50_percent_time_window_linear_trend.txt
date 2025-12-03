@@ -1,0 +1,24 @@
+Infant linear trend (looked_at_target)
+Infant age range: 7-11 months
+Coefficient (per month): 0.068
+p-value: 0.6081
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:            looked_at_target   No. Observations:                  157
+Model:                                 GEE   No. clusters:                       47
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   6
+Family:                           Binomial   Mean cluster size:                 3.3
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Sat, 29 Nov 2025   Scale:                           1.000
+Covariance type:                    robust   Time:                         22:16:51
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       0.5291      1.221      0.433      0.665      -1.864       2.922
+age_numeric     0.0678      0.132      0.513      0.608      -0.191       0.327
+==============================================================================
+Skew:                         -1.2010   Kurtosis:                      -0.5490
+Centered skew:                -0.2957   Centered kurtosis:              0.6712
+==============================================================================

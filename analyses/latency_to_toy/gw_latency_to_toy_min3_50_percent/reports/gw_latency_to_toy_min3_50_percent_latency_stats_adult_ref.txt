@@ -1,0 +1,32 @@
+Latency GEE with adult reference
+Reference cohort: Adults
+Participants: 54
+Trials: 145
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:              latency_frames   No. Observations:                  145
+Model:                                 GEE   No. clusters:                       54
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   4
+Family:                           Gaussian   Mean cluster size:                 2.7
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Fri, 28 Nov 2025   Scale:                         102.485
+Covariance type:                    robust   Time:                         07:34:45
+=============================================================================================================================
+                                                                coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------
+Intercept                                                     5.1892      1.551      3.346      0.001       2.149       8.229
+C(cohort, Treatment(reference='Adults'))[T.7-month-olds]      9.3108      3.843      2.423      0.015       1.778      16.844
+C(cohort, Treatment(reference='Adults'))[T.8-month-olds]     10.1997      3.007      3.392      0.001       4.306      16.093
+C(cohort, Treatment(reference='Adults'))[T.9-month-olds]     16.8508      2.017      8.354      0.000      12.897      20.804
+C(cohort, Treatment(reference='Adults'))[T.10-month-olds]    12.3915      2.700      4.590      0.000       7.100      17.683
+C(cohort, Treatment(reference='Adults'))[T.11-month-olds]    11.6233      3.262      3.563      0.000       5.229      18.017
+==============================================================================
+Skew:                          1.0358   Kurtosis:                       2.1760
+Centered skew:                 0.4022   Centered kurtosis:              1.4181
+==============================================================================
+
+Adult vs. Infant comparison (frames):
+Infant mean: 17.62 (n=108)
+Adult mean: 5.13 (n=39)

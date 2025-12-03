@@ -1,0 +1,50 @@
+GEE results for Agent-Object Binding
+Reference cohort: 7-month-olds
+Participants: 55
+Trials: 163
+
+                                 GEE Regression Results                                
+=======================================================================================
+Dep. Variable:        agent_object_binding_pct   No. Observations:                  163
+Model:                                     GEE   No. clusters:                       55
+Method:                            Generalized   Min. cluster size:                   1
+                          Estimating Equations   Max. cluster size:                   5
+Family:                               Gaussian   Mean cluster size:                 3.0
+Dependence structure:             Independence   Num. iterations:                     2
+Date:                         Sat, 29 Nov 2025   Scale:                           0.042
+Covariance type:                        robust   Time:                         17:35:00
+===================================================================================================================================
+                                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                           0.1731      0.058      2.971      0.003       0.059       0.287
+C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]     -0.0481      0.065     -0.739      0.460      -0.176       0.079
+C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]     -0.0774      0.069     -1.119      0.263      -0.213       0.058
+C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]    -0.0685      0.065     -1.050      0.294      -0.196       0.059
+C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]     0.0047      0.072      0.065      0.948      -0.136       0.146
+C(cohort, Treatment(reference='7-month-olds'))[T.Adults]            0.3344      0.072      4.654      0.000       0.194       0.475
+==============================================================================
+Skew:                          1.1426   Kurtosis:                       1.8842
+Centered skew:                 0.7572   Centered kurtosis:              1.4570
+==============================================================================
+
+Linear Trend Test (Agent-Object Binding, infants 7-11 mo)
+
+                                 GEE Regression Results                                
+=======================================================================================
+Dep. Variable:        agent_object_binding_pct   No. Observations:                  120
+Model:                                     GEE   No. clusters:                       41
+Method:                            Generalized   Min. cluster size:                   1
+                          Estimating Equations   Max. cluster size:                   5
+Family:                               Gaussian   Mean cluster size:                 2.9
+Dependence structure:             Independence   Num. iterations:                     2
+Date:                         Sat, 29 Nov 2025   Scale:                           0.037
+Covariance type:                        robust   Time:                         17:35:00
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       0.1125      0.134      0.839      0.402      -0.150       0.375
+age_numeric     0.0015      0.014      0.104      0.917      -0.027       0.030
+==============================================================================
+Skew:                          2.0297   Kurtosis:                       3.6880
+Centered skew:                 0.9265   Centered kurtosis:              2.1134
+==============================================================================

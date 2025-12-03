@@ -1,0 +1,35 @@
+input_threshold_dir: "outputs/min3-50_percent"
+input_filename: "gaze_fixations_combined_min3.csv"
+condition_codes:
+  - "gw"
+
+toy_aois:
+  - "toy_present"
+
+window:
+  start_frame: 30
+  end_frame: 80
+
+cohorts:
+  - label: "7-month-olds"
+    min_months: 7
+    max_months: 7
+  - label: "8-month-olds"
+    min_months: 8
+    max_months: 8
+  - label: "9-month-olds"
+    min_months: 9
+    max_months: 9
+  - label: "10-month-olds"
+    min_months: 10
+    max_months: 10
+  - label: "11-month-olds"
+    min_months: 11
+    max_months: 11
+  - label: "Adults"
+    min_months: 216
+    max_months: 600
+
+gee:
+  reference_label: "7-month-olds"
+

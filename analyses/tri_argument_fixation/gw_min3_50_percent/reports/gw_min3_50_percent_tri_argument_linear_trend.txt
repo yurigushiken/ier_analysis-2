@@ -1,0 +1,23 @@
+Tri-argument success linear trend (infants 7-11 months)
+Participants: 41
+Trials: 140
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:        tri_argument_success   No. Observations:                  140
+Model:                                 GEE   No. clusters:                       41
+Method:                        Generalized   Min. cluster size:                   2
+                      Estimating Equations   Max. cluster size:                   5
+Family:                           Binomial   Mean cluster size:                 3.4
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Fri, 28 Nov 2025   Scale:                           1.000
+Covariance type:                    robust   Time:                         07:32:15
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -3.1329      1.258     -2.490      0.013      -5.599      -0.667
+age_numeric     0.3585      0.134      2.674      0.007       0.096       0.621
+==============================================================================
+Skew:                         -0.1080   Kurtosis:                      -1.7768
+Centered skew:                -0.1478   Centered kurtosis:             -0.8998
+==============================================================================

@@ -1,0 +1,11 @@
+Research Question: Do participants in each cohort fixate all relevant arguments during GIVE-with-toy events (50% on-screen trials)?
+Hypothesis: Infants younger than 10 months will fail to fixate all three arguments more often than older infants and adults.
+Prediction: 10+ month infants and adults will show higher tri-argument fixation rates than 7–9 month infants.
+
+Results:
+- 7-month-olds: 8/23 trials (34.8% coverage, 7 participants)
+- 8-month-olds: 10/25 trials (40.0% coverage, 7 participants)
+- 9-month-olds: 14/32 trials (43.8% coverage, 9 participants)
+- 10-month-olds: 24/39 trials (61.5% coverage, 11 participants)
+- 11-month-olds: 14/21 trials (66.7% coverage, 7 participants)
+- Adults: 28/40 trials (70.0% coverage, 13 participants)

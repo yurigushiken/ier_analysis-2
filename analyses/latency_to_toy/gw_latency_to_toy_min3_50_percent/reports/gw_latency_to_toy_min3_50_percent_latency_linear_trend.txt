@@ -1,0 +1,23 @@
+Latency linear trend for infants (7-11 months)
+Participants: 40
+Trials: 108
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:              latency_frames   No. Observations:                  108
+Model:                                 GEE   No. clusters:                       40
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   4
+Family:                           Gaussian   Mean cluster size:                 2.7
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Fri, 28 Nov 2025   Scale:                         112.661
+Covariance type:                    robust   Time:                         07:34:47
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      11.4375      9.311      1.228      0.219      -6.811      29.686
+age_numeric     0.6807      1.002      0.679      0.497      -1.283       2.644
+==============================================================================
+Skew:                          0.3801   Kurtosis:                       0.1085
+Centered skew:                 0.1599   Centered kurtosis:              0.0646
+==============================================================================

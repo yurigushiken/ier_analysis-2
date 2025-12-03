@@ -1,0 +1,22 @@
+GEE (Binomial, logit link) results
+Descriptive statistics:
+  Trials per participant - min: 2, max: 6, mean: 3.45
+  Class balance - successes: 86, failures: 114
+
+Observations: 200
+Participants: 58
+
+Model diagnostics:
+  QIC: (np.float64(260.0981335468938), np.float64(269.1137339202503))
+  Scale parameter: 1.000
+  Covariance type: robust
+  Working correlation parameter: not estimated (independence)
+
+Coefficient Summary (reference cohort: 7-month-olds)
+Term                                Coef     Std Err         z     P>|z|      [0.025      0.975]
+Intercept                        -0.7472      0.3132    -2.386    0.0170     -1.3610     -0.1334
+C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]    0.2772      0.6447     0.430    0.6672     -0.9863      1.5407
+C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]   -0.5650      0.4789    -1.180    0.2381     -1.5036      0.3737
+C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]    0.4288      0.4938     0.868    0.3852     -0.5390      1.3965
+C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]    0.9549      0.4324     2.208    0.0272      0.1075      1.8023
+C(cohort, Treatment(reference='7-month-olds'))[T.Adults]    1.1890      0.4580     2.596    0.0094      0.2914      2.0867

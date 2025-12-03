@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+
+# Generated analysis artifacts
+outputs/
+results/
+temp/
+
+# User-level assets
+presentation/event_structure_infants.pptx
+presentation/media/
+
+# Local test scaffolding
+tests/
+

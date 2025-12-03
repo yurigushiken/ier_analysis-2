@@ -1,0 +1,11 @@
+Research Question: Do participants in each cohort fixate all relevant arguments during Upside-down give with toy events (50% on-screen trials)?
+Hypothesis: Infants younger than 10 months will fail to fixate all three arguments more often than older infants and adults.
+Prediction: 10+ month infants and adults will show higher tri-argument fixation rates than 7–9 month infants.
+
+Results:
+- 7-month-olds: 1/9 trials (11.1% coverage, 2 participants)
+- 8-month-olds: 6/22 trials (27.3% coverage, 6 participants)
+- 9-month-olds: 10/26 trials (38.5% coverage, 9 participants)
+- 10-month-olds: 17/34 trials (50.0% coverage, 11 participants)
+- 11-month-olds: 10/25 trials (40.0% coverage, 8 participants)
+- Adults: 21/46 trials (45.7% coverage, 14 participants)

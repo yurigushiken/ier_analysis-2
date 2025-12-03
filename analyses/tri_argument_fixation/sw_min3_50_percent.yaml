@@ -1,0 +1,51 @@
+input_threshold_dir: "outputs/min3-50_percent"
+input_filename: "gaze_fixations_combined_min3.csv"
+condition_codes:
+  - "sw"
+
+min_trials_per_participant: 2
+
+aoi_groups:
+  man:
+    - "man_face"
+    - "man_body"
+  woman:
+    - "woman_face"
+    - "woman_body"
+  toy:
+    - "toy_present"
+
+cohorts:
+  - label: "7-month-olds"
+    min_months: 7
+    max_months: 7
+  - label: "8-month-olds"
+    min_months: 8
+    max_months: 8
+  - label: "9-month-olds"
+    min_months: 9
+    max_months: 9
+  - label: "10-month-olds"
+    min_months: 10
+    max_months: 10
+  - label: "11-month-olds"
+    min_months: 11
+    max_months: 11
+  - label: "Adults"
+    min_months: 216
+    max_months: 600
+
+report:
+  research_question: "During SHOW-with-toy events (50% on-screen trials), do cohorts fixate show-er, observer, and toy arguments?"
+  hypothesis: "Older infants and adults will more efficiently fixate all SHOW arguments than younger infants."
+  prediction: "10+ month infants and adults will show higher tri-argument coverage than 7–9 month infants."
+  plot_title: "\"Show\" tri-argument fixation coverage by cohort"
+
+frame_window:
+  start: 45
+  end: 115
+
+gee:
+  enabled: true
+  reference_cohort: "7-month-olds"
+
