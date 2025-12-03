@@ -6,20 +6,31 @@
 > **Research Abstract**: [Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces](https://docs.google.com/document/d/1z3gO30xdPWrcsX5qYWvljeWNdxxwHL-vcqHfk6ucMcI/edit?tab=t.0#heading=h.f134jajyzrzy)
 > Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2024)
 
+> **This work continues**: Gordon, P. (2003). The origin of argument structure in infant event representations. *ResearchGate*.
+
 ---
 
 ## Scientific Motivation
 
-### The Two-Systems Hypothesis
+*The following is adapted from Dr. Peter Gordon's project proposal for this research.*
 
-How do pre-linguistic infants parse dynamic social events like "giving" or "showing" into the argument structures (giver, recipient, object) required for language acquisition? This pipeline investigates a fundamental question in developmental cognitive science: **when and how do infants transition from tracking physical motion to constructing semantic event representations?**
+### The Origins of Language
 
-We hypothesize **two competing attentional systems**:
+The project investigates how pre-linguistic infants represent events (e.g., "giving" vs. "hugging") to determine if these concepts naturally undergird the acquisition of verb-argument structure in language.
 
-1. **Motion-Tracking System** (early-developing): Infants reflexively follow moving objects through space, tracking body movements and object trajectories
-2. **Social-Semantic System** (later-developing): Infants actively construct event structures by monitoring faces (agents' intentions) and their relationships to objects
+### Inspiration from "Home Signers"
 
-Our findings reveal a **developmental shift between 7 and 11 months**: younger infants predominantly use motion-tracking (Toy↔Body transitions), while older infants and adults prioritize social-semantic understanding (Face↔Toy and Face↔Face transitions).
+The hypothesis is driven by evidence that deaf children invent gestural communication systems with complex argument structures even without linguistic input, suggesting these concepts are innate to the human conceptual system.
+
+### The Role of Intentionality
+
+The study aims to understand how infants use intentionality to parse the "main act" of an event (e.g., distinguishing the goal of "giving" from the motion of "moving").
+
+### Broader Impacts
+
+**Clinical Applications**: Identifying the cognitive underpinnings of language can assist in helping individuals with neuropsychological conditions that diminish language learning or social understanding.
+
+**Diversity & Community**: Situated at Teachers College near Harlem, the project is explicitly committed to training students from underrepresented minority populations and engaging the local community in scientific research.
 
 ---
 
