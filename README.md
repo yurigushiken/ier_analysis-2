@@ -128,7 +128,7 @@ For each analysis configuration:
 
 ---
 
-## Key Findings
+## Findings
 
 ### Finding 1: Developmental Trajectory in Event Processing
 
@@ -155,106 +155,6 @@ Comparison of upright and inverted event conditions suggests that observed atten
 ✅ **Comprehensive Testing**: pytest coverage for data processing and statistical functions
 ✅ **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
 ✅ **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
-
----
-
-## Quick Start
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/yourusername/ier_analysis-2.git
-cd ier_analysis-2
-
-# Create conda environment
-conda create -n ier_analysis python=3.8
-conda activate ier_analysis
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Basic Usage
-
-**Step 1: Generate Fixations**
-
-```bash
-python -m src.generator \
-    --thresholds 3 4 \
-    --output-root outputs \
-    --min-onscreen-frames 105 \
-    --dir-suffix -70_percent
-```
-
-**Step 2: Run Tri-Argument Analysis**
-
-```bash
-python -m analyses.tri_argument_fixation.run \
-    --config analyses/tri_argument_fixation/gw_min3_70_percent.yaml
-```
-
-**Step 3: Run Gaze Transition Analysis**
-
-```bash
-python -m analyses.gaze_transition_analysis.run \
-    --config analyses/gaze_transition_analysis/gw_transitions_min3_70_percent.yaml
-```
-
-**Step 4: View Results**
-
-```bash
-# Tables
-ls analyses/tri_argument_fixation/gw_min3_70_percent/tables/
-
-# Figures
-ls analyses/tri_argument_fixation/gw_min3_70_percent/figures/
-
-# Statistical reports
-cat analyses/tri_argument_fixation/gw_min3_70_percent/reports/gw_min3_70_percent_gee_results.txt
-```
-
----
-
-## Data Requirements
-
-### Input Format
-
-Frame-level CSV files with human-verified AOI coding:
-
-**Required Columns**:
-- `Participant`, `participant_type`, `participant_age_months`
-- `trial_number`, `condition`, `segment`
-- `Frame Number`, `Onset`, `Offset`
-- `What`, `Where` (AOI descriptors, e.g., "woman", "face")
-- `event_verified`, `frame_count_trial_number`
-
-**Directory Structure**:
-```
-data/csvs_human_verified_vv/
-├── child/
-│   ├── participant_001.csv
-│   ├── participant_002.csv
-│   └── ...
-└── adult/
-    ├── adult_001.csv
-    └── ...
-```
-
-### AOI Mapping
-
-The pipeline maps `(What, Where)` pairs to semantic AOI categories:
-
-| What | Where | AOI Category |
-|------|-------|-------------|
-| woman | face | woman_face |
-| man | face | man_face |
-| toy | other | toy_present |
-| toy2 | other | toy_location |
-| woman/man | body | woman_body / man_body |
-| woman/man | hands | woman_hands / man_hands |
-| no | signal | off_screen |
-| screen | other | screen_nonAOI |
 
 ---
 
@@ -294,12 +194,7 @@ strategies:
 
 ### Statistical Methods
 
-All analyses use appropriate statistical models to properly handle:
-- Repeated measures (multiple trials per participant)
-- Participant-level clustering
-- Appropriate distributions for different outcome types
-
-The pipeline implements precision weighting in transition analyses, where trials are weighted by information content to ensure proper statistical inference.
+Tri-argument fixation, time-window looks, latency-to-toy, and gaze-strategy outcomes are fit with statsmodels Generalized Estimating Equations that cluster on `participant_id` and choose Binomial or Gaussian families to match binary vs. continuous targets. Gaze-transition strategy GEEs additionally pass each trial’s total transition count as a precision weight so high-information trials contribute proportionally while repeated measures remain properly handled.
 
 ---
 
@@ -326,45 +221,6 @@ Coverage includes:
 - AOI mapping logic
 - Statistical function parameter passing
 - GEE model specifications
-
----
-
-## Repository Structure
-
-```
-ier_analysis-2/
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── src/                               # Core data processing pipeline
-│   ├── config.py                      # Project constants and paths
-│   ├── loader.py                      # Frame CSV ingestion
-│   ├── gaze_detector.py               # Fixation detection algorithm
-│   ├── aoi_mapper.py                  # What/Where → AOI mapping
-│   └── generator.py                   # CLI fixation generator
-├── analyses/                          # Five analysis systems
-│   ├── tri_argument_fixation/
-│   │   ├── run.py                     # Main entry point
-│   │   ├── pipeline.py                # Trial metric computation
-│   │   ├── stats.py                   # Statistical models
-│   │   ├── visuals.py                 # Plotting functions
-│   │   ├── reports.py                 # Report generation
-│   │   ├── gw_min3_50_percent.yaml    # Example configuration file
-│   │   └── gw_min3_50_percent/        # Example output directory
-│   │       ├── tables/
-│   │       ├── figures/
-│   │       └── reports/
-│   ├── gaze_transition_analysis/
-│   │   ├── run.py
-│   │   ├── transitions.py             # Transition counting
-│   │   ├── matrix.py                  # Transition matrices
-│   │   ├── strategy.py                # Strategy analysis
-│   │   └── visuals.py
-│   ├── latency_to_toy/
-│   ├── time_window_look_analysis/
-│   └── __init__.py
-├── tests/                             # Unit and integration tests
-└── presentation/                      # Presentation utilities
-```
 
 ---
 
