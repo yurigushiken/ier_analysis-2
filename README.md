@@ -39,21 +39,18 @@ The study aims to understand how infants use intentionality to parse the "main a
 This pipeline addresses three core questions:
 
 1. **Developmental Trajectory**: At what age do infants reliably fixate all three event arguments (giver/show-er, recipient/observer, object)?
-   - **Finding**: Significant improvement at **10 months** (67% success vs. 35-48% in younger infants)
 
 2. **Gaze Strategy Shifts**: How do scanning patterns change across development?
-   - **Finding**: 7-month-olds track physical motion (Toy↔Body), while 10-11-month-olds and adults prioritize faces (Face↔Face, Face↔Toy)
 
 3. **Semantic vs. Visual Processing**: Are these shifts driven by low-level visual features or emerging semantic understanding?
-   - **Finding**: The face-prioritization effect **diminishes in inverted "Give" events**, suggesting semantic rather than purely visual processing
 
 ---
 
 ## Study Background
 
 ### Participants
-- **Infants**: 48 child participants aged 7-11 months (stratified by month)
-- **Adults**: 15 adult participants (18+ years)
+- **Infants**: Multiple age cohorts of infants (7-11 months)
+- **Adults**: Adult control participants (18+ years)
 
 ### Stimuli
 Video recordings of actors performing social interaction events:
@@ -118,10 +115,10 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 | **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
 
 ### 3. **Statistical Rigor**
-- **GEE (Generalized Estimating Equations)**: Properly handles repeated measures with participant clustering
-- **Precision Weighting** (gaze transitions): Trials weighted by information content (2-9 transitions per trial)
-- **Linear Trend Testing**: Continuous developmental trajectories across infant ages
-- **Effect Sizes**: Odds ratios with 95% confidence intervals
+- **Advanced statistical methods**: Properly handles repeated measures with participant clustering
+- **Precision Weighting**: Trials weighted by information content
+- **Developmental trajectory analysis**: Continuous trends across infant ages
+- **Effect size estimation**: Comprehensive statistical inference
 
 ### 4. **Publication-Ready Outputs**
 For each analysis configuration:
@@ -131,38 +128,22 @@ For each analysis configuration:
 
 ---
 
-## Preliminary Results
+## Key Findings
 
-### Finding 1: Developmental Step at 10 Months
+### Finding 1: Developmental Trajectory in Event Processing
 
-**Tri-argument fixation success rates** (GIVE-with-toy, 70% on-screen threshold):
-
-| Age Group | Success Rate | vs. 7-month-olds |
-|-----------|-------------|------------------|
-| 7-month-olds | 35% | Reference |
-| 8-month-olds | 48% | OR=1.7, p=.41 (ns) |
-| 9-month-olds | 44% | OR=1.5, p=.53 (ns) |
-| **10-month-olds** | **67%** | **OR=3.8, p=.012*** |
-| **11-month-olds** | **67%** | **OR=3.8, p=.025*** |
-| **Adults** | **83%** | **OR=8.8, p<.001*** |
-
-**Linear trend**: Each additional month increases success odds by 43% (p=.007)
+Analysis of tri-argument fixation patterns reveals significant developmental changes across the studied age range, with notable improvements observed in older infant cohorts.
 
 ### Finding 2: Shift From Motion-Tracking to Social-Semantic Processing
 
-**Gaze transition strategies** (percentage of all transitions):
+Gaze transition analysis indicates developmental shifts in attention strategies:
+- Younger infants tend to track physical motion and object movement
+- Older infants increasingly prioritize social cues and face-to-face monitoring
+- Developmental patterns show progression toward adult-like attention strategies
 
-| Strategy | 7mo | 8mo | 9mo | 10mo | 11mo | Adults | Trend |
-|----------|-----|-----|-----|------|------|--------|-------|
-| **Motion Tracking** (Toy↔Body) | High | → | → | → | ↓ | Low | Decreasing** |
-| **Social Monitoring** (Face↔Face) | Low | → | → | ↑ | ↑ | High | Increasing*** |
-| **Agent-Object Binding** (Face↔Toy) | Low | → | ↑ | ↑ | ↑ | High | Increasing*** |
+### Finding 3: Evidence for Semantic Understanding
 
-**Interpretation**: 7-month-olds follow the physical path of the object. By 10-11 months, infants prioritize faces, connecting people with objects—a strategy matching adult patterns.
-
-### Finding 3: Semantic Understanding, Not Just Visual Features
-
-The face-prioritization effect **disappears in inverted "Give" events**, suggesting infants are not simply responding to low-level visual salience but actively constructing semantic event representations.
+Comparison of upright and inverted event conditions suggests that observed attention patterns reflect semantic event understanding rather than purely visual feature processing.
 
 ---
 
@@ -313,12 +294,12 @@ strategies:
 
 ### Statistical Methods
 
-All analyses use **Generalized Estimating Equations (GEE)** to properly handle:
+All analyses use appropriate statistical models to properly handle:
 - Repeated measures (multiple trials per participant)
-- Participant-level clustering (random intercept analogue)
-- Appropriate distributions (Binomial for success/failure, Gaussian for continuous measures)
+- Participant-level clustering
+- Appropriate distributions for different outcome types
 
-**Innovation**: The gaze transition analysis implements **precision weighting**, where each trial is weighted by its `total_transitions` count (range: 2-9), ensuring proper statistical inference when trials provide different amounts of information.
+The pipeline implements precision weighting in transition analyses, where trials are weighted by information content to ensure proper statistical inference.
 
 ---
 
