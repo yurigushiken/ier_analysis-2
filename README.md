@@ -16,11 +16,11 @@
 
 ### The Origins of Language
 
-The project investigates how pre-linguistic infants represent events (e.g., "giving", "showing") to determine if these concepts naturally undergird the acquisition of verb-argument structure in language.
+The project investigates how pre-linguistic infants represent events (e.g., "giving", "showing") to determine if these concepts undergird the acquisition of verb-argument structure in language.
 
 ### Inspiration from "Home Signers"
 
-The hypothesis is driven by evidence that deaf children invent gestural communication systems with complex argument structures even without linguistic input, suggesting these concepts are innate to the human conceptual system.
+The hypothesis is driven by evidence that deaf children invent gestural communication systems with argument structures even without linguistic input, suggesting these concepts are innate to the human conceptual system.
 
 ### The Role of Intentionality
 
@@ -38,7 +38,7 @@ The study aims to understand how infants use intentionality to parse the "main a
 
 This pipeline addresses three core questions:
 
-1. **Developmental Trajectory**: At what age do infants reliably fixate all three event arguments (giver/show-er, recipient/observer, object)?
+1. **Developmental Trajectory**: At what age do infants fixate all three event arguments (giver/show-er, recipient/observer, object)?
 
 2. **Gaze Strategy Shifts**: How do scanning patterns change across development?
 
@@ -90,13 +90,13 @@ The analyses presented here use the **min3-50_percent** dataset:
 - **min3**: A fixation is defined as ≥3 consecutive frames on the same AOI
 - **50_percent**: Only trials where the participant looked on-screen for ≥50% of frames are included
 
-This ensures data quality while maintaining sufficient statistical power.
+This ensures data quality while maintaining statistical power.
 
 ---
 
 ## What This Pipeline Does
 
-This pipeline provides a **complete, reproducible workflow** from raw eye-tracking frames to publication-ready statistical analyses:
+This pipeline provides a **reproducible workflow** from raw eye-tracking frames to publication-ready statistical analyses:
 
 ### 1. **Fixation Generation** ([src/](src/))
 Converts frame-level gaze data into fixation events with configurable thresholds:
@@ -104,7 +104,7 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 - On-screen attention filters (50% or 70% thresholds)
 - AOI mapping (What/Where descriptors → semantic categories)
 
-### 2. **Five Complementary Analyses** ([analyses/](analyses/))
+### 2. **Five Analyses** ([analyses/](analyses/))
 
 | Analysis | Research Question | Statistical Method | Output |
 |----------|------------------|-------------------|------------|
@@ -114,11 +114,11 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 | **Time Window Looks** | Do infants look at critical AOIs during moments? | Binomial GEE | Binary outcomes by time window |
 | **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
 
-### 3. **Statistical Rigor**
-- **Advanced statistical methods**: Properly handles repeated measures with participant clustering
-- **Precision Weighting**: Trials weighted by information content
+### 3. **Statistics**
+- **Statistical methods**: Handles repeated measures with participant clustering
+- **Weighting**: Trials weighted by information content
 - **Developmental trajectory analysis**: Continuous trends across infant ages
-- **Effect size estimation**: Comprehensive statistical inference
+- **Effect size estimation**: Statistical inference
 
 ### 4. **Publication-Ready Outputs**
 For each analysis configuration:
@@ -151,76 +151,10 @@ Comparison of upright and inverted event conditions suggests that observed atten
 
 ✅ **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
 ✅ **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
-✅ **Precision-Weighted GEE**: Properly accounts for varying trial quality in transition analyses
-✅ **Comprehensive Testing**: pytest coverage for data processing and statistical functions
+✅ **Weighted GEE**: Accounts for varying trial quality in transition analyses
+✅ **Testing**: pytest coverage for data processing and statistical functions
 ✅ **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
 ✅ **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
-
----
-
-## Documentation
-
-### Analysis Configuration Examples
-
-**Tri-Argument Analysis** ([gw_min3_70_percent.yaml](analyses/tri_argument_fixation/gw_min3_70_percent.yaml)):
-```yaml
-input_threshold_dir: "outputs/min3-70_percent"
-input_filename: "gaze_fixations_combined_min3.csv"
-condition_codes: ["gw"]
-frame_window:
-  start: 1
-  end: 150
-aoi_groups:
-  man: ["man_face", "man_body"]
-  woman: ["woman_face", "woman_body"]
-  toy: ["toy_present"]
-```
-
-**Gaze Transition Analysis** ([gw_transitions_min3_70_percent.yaml](analyses/gaze_transition_analysis/gw_transitions_min3_70_percent.yaml)):
-```yaml
-input_fixations: "outputs/min3-70_percent/gaze_fixations_combined_min3.csv"
-condition_codes: ["gw"]
-aoi_nodes: ["man_face", "woman_face", "toy_present", "man_body", "woman_body"]
-strategies:
-  agent_agent_attention:
-    - ["man_face", "woman_face"]
-  agent_object_binding:
-    - ["man_face", "toy_present"]
-    - ["woman_face", "toy_present"]
-  motion_tracking:
-    - ["man_body", "toy_present"]
-    - ["woman_body", "toy_present"]
-```
-
-### Statistical Methods
-
-Tri-argument fixation, time-window looks, latency-to-toy, and gaze-strategy outcomes are fit with statsmodels Generalized Estimating Equations that cluster on `participant_id` and choose Binomial or Gaussian families to match binary vs. continuous targets. Gaze-transition strategy GEEs additionally pass each trial’s total transition count as a precision weight so high-information trials contribute proportionally while repeated measures remain properly handled.
-
----
-
-## Reproducibility
-
-### Version Control
-- All analysis configurations tracked in YAML files
-- Statistical parameters explicitly documented
-- Random seeds set where applicable
-
-### Output Naming
-All outputs prefixed by configuration name to prevent overwrites:
-- `gw_min3_70_percent_tri_argument_summary.csv`
-- `gw_min3_70_percent_transition_heatmap.png`
-- `gw_min3_70_percent_gee_results.txt`
-
-### Testing
-```bash
-pytest tests -v
-```
-
-Coverage includes:
-- Fixation detection algorithms
-- AOI mapping logic
-- Statistical function parameter passing
-- GEE model specifications
 
 ---
 
