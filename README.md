@@ -335,15 +335,6 @@ Coverage includes:
 ier_analysis-2/
 ├── README.md                          # This file
 ├── requirements.txt                   # Python dependencies
-├── data/                              # Input data (gitignored)
-│   └── csvs_human_verified_vv/
-│       ├── child/
-│       └── adult/
-├── outputs/                           # Generated fixations (gitignored)
-│   ├── min3-50_percent/
-│   ├── min3-70_percent/
-│   ├── min4-50_percent/
-│   └── min4-70_percent/
 ├── src/                               # Core data processing pipeline
 │   ├── config.py                      # Project constants and paths
 │   ├── loader.py                      # Frame CSV ingestion
@@ -354,11 +345,11 @@ ier_analysis-2/
 │   ├── tri_argument_fixation/
 │   │   ├── run.py                     # Main entry point
 │   │   ├── pipeline.py                # Trial metric computation
-│   │   ├── stats.py                   # GEE statistical models
+│   │   ├── stats.py                   # Statistical models
 │   │   ├── visuals.py                 # Plotting functions
 │   │   ├── reports.py                 # Report generation
-│   │   ├── gw_min3_70_percent.yaml    # Configuration file
-│   │   └── gw_min3_70_percent/        # Output directory
+│   │   ├── gw_min3_50_percent.yaml    # Example configuration file
+│   │   └── gw_min3_50_percent/        # Example output directory
 │   │       ├── tables/
 │   │       ├── figures/
 │   │       └── reports/
@@ -366,7 +357,7 @@ ier_analysis-2/
 │   │   ├── run.py
 │   │   ├── transitions.py             # Transition counting
 │   │   ├── matrix.py                  # Transition matrices
-│   │   ├── strategy.py                # Precision-weighted GEE
+│   │   ├── strategy.py                # Strategy analysis
 │   │   └── visuals.py
 │   ├── latency_to_toy/
 │   ├── time_window_look_analysis/
