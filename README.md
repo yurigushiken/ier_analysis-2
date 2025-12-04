@@ -101,7 +101,7 @@ This pipeline provides a **reproducible workflow** from raw eye-tracking frames 
 ### 1. **Fixation Generation** ([src/](src/))
 Converts frame-level gaze data into fixation events with configurable thresholds:
 - Minimum fixation duration (3, 4, or 5 consecutive frames)
-- On-screen attention filters (50% or 70% thresholds)
+- On-screen attention filters (50% to 70% thresholds)
 - AOI mapping (What/Where descriptors → semantic categories)
 
 ### 2. **Five Analyses** ([analyses/](analyses/))
@@ -109,7 +109,7 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 | Analysis | Research Question | Statistical Method | Output |
 |----------|------------------|-------------------|------------|
 | **Tri-Argument Fixation** | Do infants fixate all three arguments? | Binomial GEE | Success rates, odds ratios |
-| **Gaze Transitions** ⭐ | What scanning strategies do infants use? | Precision-weighted Gaussian GEE | Transition matrices, strategy proportions |
+| **Gaze Transitions** | What scanning strategies do infants use? | Precision-weighted Gaussian GEE | Transition matrices, strategy proportions |
 | **Latency to Toy** | How quickly do infants shift to the object? | Gaussian GEE | Mean latency by cohort |
 | **Time Window Looks** | Do infants look at critical AOIs during moments? | Binomial GEE | Binary outcomes by time window |
 | **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
@@ -128,7 +128,7 @@ For each analysis configuration:
 
 ---
 
-## Findings
+## Preliminary Findings
 
 ### Finding 1: Developmental Trajectory in Event Processing
 
