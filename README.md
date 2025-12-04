@@ -3,7 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Research Abstract**: [Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces](https://docs.google.com/document/d/1z3gO30xdPWrcsX5qYWvljeWNdxxwHL-vcqHfk6ucMcI/edit?tab=t.0#heading=h.f134jajyzrzy)
+> **Research**: Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces
 > Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2024)
 
 > **This work continues**: Gordon, P. (2003). The origin of argument structure in infant event representations. *ResearchGate*.
