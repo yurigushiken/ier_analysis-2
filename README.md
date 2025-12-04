@@ -149,12 +149,12 @@ Comparison of upright and inverted event conditions suggests that observed atten
 
 ## Features
 
-✅ **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
-✅ **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
-✅ **Weighted GEE**: Accounts for varying trial quality in transition analyses
-✅ **Testing**: pytest coverage for data processing and statistical functions
-✅ **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
-✅ **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
+- **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
+- **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
+- **Weighted GEE**: Accounts for varying trial quality in transition analyses
+- **Testing**: pytest coverage for data processing and statistical functions
+- **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
+- **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
 
 ---
 
