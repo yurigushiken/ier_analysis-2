@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Research**: Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces
-> Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2024)
+> Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2025)
 
 > **This work continues**: Gordon, P. (2003). The origin of argument structure in infant event representations. *ResearchGate*.
 
