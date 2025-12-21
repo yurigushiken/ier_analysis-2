@@ -138,7 +138,7 @@ Analysis of tri-argument fixation patterns reveals significant developmental cha
 
 Gaze transition analysis indicates developmental shifts in attention strategies:
 - Younger infants tend to track physical motion and object movement
-- Older infants increasingly prioritize social cues and face-to-face monitoring
+- Older infants increasingly prioritize face<->toy and face-to-face transitions
 - Developmental patterns show progression toward adult-like attention strategies
 
 ### Finding 3: Evidence for Semantic Understanding
@@ -147,27 +147,3 @@ Comparison of upright and inverted event conditions suggests that observed atten
 
 ---
 
-## Features
-
-- **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
-- **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
-- **Weighted GEE**: Accounts for varying trial quality in transition analyses
-- **Testing**: pytest coverage for data processing and statistical functions
-- **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
-- **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Status**: Production Ready ✅
-**Last Updated**: 2024-12-03
-**Contact**: [Your contact information]
-
----
-
-*This pipeline was developed to support reproducible research in developmental cognitive science. We hope it serves as a resource for the broader research community studying infant attention and social cognition.*
