@@ -56,21 +56,10 @@ This pipeline addresses three core questions:
 Video recordings of actors performing social interaction events:
 
 **Upright videos**:
-- **GIVE-with-toy**: Person A hands object to Person B
-- **GIVE-without-toy**: Giving gesture with empty hands
-- **HUG-with-toy**: Person A and Person B embrace while holding object
-- **HUG-without-toy**: Person A and Person B embrace
-- **SHOW-with-toy**: Person A shows object to Person B
-- **SHOW-without-toy**: Showing gesture without object present
-- **FLOATING-toy**: Object moves without human interaction
 
 **Inverted control videos** (to test semantic vs. low-level visual processing):
-- **Inverted GIVE-with-toy**: Upside-down version of GIVE-with-toy
-- **Inverted GIVE-without-toy**: Upside-down version of GIVE-without-toy
-- **Inverted HUG-with-toy**: Upside-down version of HUG-with-toy
-- **Inverted HUG-without-toy**: Upside-down version of HUG-without-toy
 
-### Areas of Interest (AOI) Coding System
+### Elements of Interest (EOI) Coding System
 
 Infant gaze was coded frame-by-frame into the following AOI categories:
 - `man_face` - Face of the male actor
@@ -104,15 +93,14 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 - On-screen attention filters (50% to 70% thresholds)
 - AOI mapping (What/Where descriptors → semantic categories)
 
-### 2. **Five Analyses** ([analyses/](analyses/))
+### 2. **Four Analyses** ([analyses/](analyses/))
 
 | Analysis | Research Question | Statistical Method | Output |
 |----------|------------------|-------------------|------------|
 | **Tri-Argument Fixation** | Do infants fixate all three arguments? | Binomial GEE | Success rates, odds ratios |
 | **Gaze Transitions** | What scanning strategies do infants use? | Precision-weighted Gaussian GEE | Transition matrices, strategy proportions |
 | **Latency to Toy** | How quickly do infants shift to the object? | Gaussian GEE | Mean latency by cohort |
-| **Time Window Looks** | Do infants look at critical AOIs during moments? | Binomial GEE | Binary outcomes by time window |
-| **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
+| **Time Window Looks** | Do infants look at EOIs during specific moments? | Binomial GEE | Binary outcomes by time window |
 
 ### 3. **Statistics**
 - **Statistical methods**: Handles repeated measures with participant clustering
@@ -120,7 +108,7 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 - **Developmental trajectory analysis**: Continuous trends across infant ages
 - **Effect size estimation**: Statistical inference
 
-### 4. **Publication-Ready Outputs**
+### 4. **Outputs**
 For each analysis configuration:
 - **Tables** (CSV): Summary statistics, trial-level data, GEE coefficients
 - **Figures** (300 DPI PNG): Bar charts, forest plots, heatmaps, network diagrams, trend lines
@@ -132,7 +120,7 @@ For each analysis configuration:
 
 ### Finding 1: Developmental Trajectory in Event Processing
 
-Analysis of tri-argument fixation patterns reveals significant developmental changes across the studied age range, with notable improvements observed in older infant cohorts.
+Analysis of tri-argument fixation patterns reveals developmental changes across the studied age range, with notable improvements observed in older infant cohorts.
 
 ### Finding 2: Shift From Motion-Tracking to Social-Semantic Processing
 
