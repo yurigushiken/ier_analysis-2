@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Research**: Look Who's Giving: Developmental Shift in Attention From Object Movement to the Faces
-> Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2024)
+> Gushiken, M., Li, Y., Tang, J. E., & Gordon, P. (2025)
 
 > **This work continues**: Gordon, P. (2003). The origin of argument structure in infant event representations. *ResearchGate*.
 
@@ -56,21 +56,10 @@ This pipeline addresses three core questions:
 Video recordings of actors performing social interaction events:
 
 **Upright videos**:
-- **GIVE-with-toy**: Person A hands object to Person B
-- **GIVE-without-toy**: Giving gesture with empty hands
-- **HUG-with-toy**: Person A and Person B embrace while holding object
-- **HUG-without-toy**: Person A and Person B embrace
-- **SHOW-with-toy**: Person A shows object to Person B
-- **SHOW-without-toy**: Showing gesture without object present
-- **FLOATING-toy**: Object moves without human interaction
 
 **Inverted control videos** (to test semantic vs. low-level visual processing):
-- **Inverted GIVE-with-toy**: Upside-down version of GIVE-with-toy
-- **Inverted GIVE-without-toy**: Upside-down version of GIVE-without-toy
-- **Inverted HUG-with-toy**: Upside-down version of HUG-with-toy
-- **Inverted HUG-without-toy**: Upside-down version of HUG-without-toy
 
-### Areas of Interest (AOI) Coding System
+### Elements of Interest (EOI) Coding System
 
 Infant gaze was coded frame-by-frame into the following AOI categories:
 - `man_face` - Face of the male actor
@@ -104,15 +93,14 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 - On-screen attention filters (50% to 70% thresholds)
 - AOI mapping (What/Where descriptors → semantic categories)
 
-### 2. **Five Analyses** ([analyses/](analyses/))
+### 2. **Four Analyses** ([analyses/](analyses/))
 
 | Analysis | Research Question | Statistical Method | Output |
 |----------|------------------|-------------------|------------|
 | **Tri-Argument Fixation** | Do infants fixate all three arguments? | Binomial GEE | Success rates, odds ratios |
 | **Gaze Transitions** | What scanning strategies do infants use? | Precision-weighted Gaussian GEE | Transition matrices, strategy proportions |
 | **Latency to Toy** | How quickly do infants shift to the object? | Gaussian GEE | Mean latency by cohort |
-| **Time Window Looks** | Do infants look at critical AOIs during moments? | Binomial GEE | Binary outcomes by time window |
-| **Event Structure** | How does trial complexity affect coverage? | Descriptive statistics | Breakdown by event type |
+| **Time Window Looks** | Do infants look at EOIs during specific moments? | Binomial GEE | Binary outcomes by time window |
 
 ### 3. **Statistics**
 - **Statistical methods**: Handles repeated measures with participant clustering
@@ -120,7 +108,7 @@ Converts frame-level gaze data into fixation events with configurable thresholds
 - **Developmental trajectory analysis**: Continuous trends across infant ages
 - **Effect size estimation**: Statistical inference
 
-### 4. **Publication-Ready Outputs**
+### 4. **Outputs**
 For each analysis configuration:
 - **Tables** (CSV): Summary statistics, trial-level data, GEE coefficients
 - **Figures** (300 DPI PNG): Bar charts, forest plots, heatmaps, network diagrams, trend lines
@@ -132,13 +120,13 @@ For each analysis configuration:
 
 ### Finding 1: Developmental Trajectory in Event Processing
 
-Analysis of tri-argument fixation patterns reveals significant developmental changes across the studied age range, with notable improvements observed in older infant cohorts.
+Analysis of tri-argument fixation patterns reveals developmental changes across the studied age range, with notable improvements observed in older infant cohorts.
 
 ### Finding 2: Shift From Motion-Tracking to Social-Semantic Processing
 
 Gaze transition analysis indicates developmental shifts in attention strategies:
 - Younger infants tend to track physical motion and object movement
-- Older infants increasingly prioritize social cues and face-to-face monitoring
+- Older infants increasingly prioritize face<->toy and face-to-face transitions
 - Developmental patterns show progression toward adult-like attention strategies
 
 ### Finding 3: Evidence for Semantic Understanding
@@ -147,27 +135,3 @@ Comparison of upright and inverted event conditions suggests that observed atten
 
 ---
 
-## Features
-
-- **Configuration-Driven Workflow**: Every analysis variant defined by a single YAML file (no code changes needed)
-- **Multi-Threshold Support**: Generate fixations at different durations (min3, min4, min5) and quality levels (50%, 70% on-screen)
-- **Weighted GEE**: Accounts for varying trial quality in transition analyses
-- **Testing**: pytest coverage for data processing and statistical functions
-- **High-DPI Visuals**: Publication-ready 300 DPI plots with consistent color palettes
-- **Reproducible**: Version-controlled configs, deterministic outputs, documented statistical methods
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Status**: Production Ready ✅
-**Last Updated**: 2024-12-03
-**Contact**: [Your contact information]
-
----
-
-*This pipeline was developed to support reproducible research in developmental cognitive science. We hope it serves as a resource for the broader research community studying infant attention and social cognition.*
