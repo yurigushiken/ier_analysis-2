@@ -1,0 +1,127 @@
+\section{Discussion}
+These findings support a dual-system account of adult numerosity
+representation and place the PI/ANS boundary at 4-5 rather than 3-4.
+In whole-epoch analyses, Target PI(2-4) was the only numerosity model
+that remained significant after excluding numerosity~1, and the no-1
+boundary contrast was strong ($d = 0.79$). In time-resolved
+model-difference tests, PI(1-4) outperformed PI(1-3) at multiple
+windows when 1 was included, and PI(2-4) outperformed PI(2-3) and ANS
+in the no-1 analysis. This boundary location is consistent with PI
+capacity at four items, converging with independent estimates from
+subitizing, visual working memory, and pre-attentive indexing
+\citep{Cowan2001,LuckVogel1997,TrickPylyshyn1994}.
+
+The results also indicate that numerosity~1 behaves differently from
+the rest of the tested range. Distance-related gradients and ANS fits
+were stronger when 1 was included and were reduced when 1 was excluded,
+while 4-5 boundary-consistent PI structure persisted. Together with MDS
+separation of 1 from both 2-4 and 5-6, this pattern is consistent with
+a three-part organization in this dataset: singleton 1, PI-range 2-4,
+and ANS-range 5-6.
+
+\paragraph{``One is Special.''}
+Numerosity~1 occupies a distinct representational position, visible as
+an isolated cluster in MDS projections
+(Figures~\ref{fig:static-change6-mds} and \ref{fig:temporal-change24-mds}). When pairs containing ``1'' are
+included, decoding accuracy increases more steeply with numerical distance
+and ANS model fits are higher, suggesting that the high discriminability
+of pairs with target 1 increases estimated ratio-dependent scaling in
+the full-range analysis.
+With numerosity~1 included, the PI(1-4)-vs-ANS contrast showed a brief
+early cluster (90-150 ms, $p = 0.050$) favoring ANS. In the no-1
+analysis, this ANS-favoring early effect was not observed, and Target
+PI(2-4) instead outperformed ANS in a later 170-310 ms cluster
+($p < 0.001$). Similarly,
+the distance gradient observed across all pairs largely
+collapses when pairs containing ``1'' are excluded. Yet excluding ``1''
+does not eliminate the 4-5 boundary signal. This pattern is consistent
+with numerosity~1 functioning as a separate category, distinct from
+both PI-range (2-4) and ANS-range (5-6) numerosities, possibly
+reflecting a dedicated singleton representation. This is also
+consistent with the singular-versus-plural distinction documented
+across languages and species
+\citep{Barner2007,Barner2008,Li2009}. These results suggest
+that including numerosity~1 in the stimulus range can increase the estimated fit
+of a single continuous magnitude code
+\citep[see][]{GallistelGelman2000}.
+
+\paragraph{Behavioral difficulty.}
+The RT model captures task-difficulty structure and achieves broad
+temporal significance. In the whole-epoch no-1 analysis, RT and the
+Target PI(2-4) model reach nearly identical correlations with the brain RDM
+($r = 0.27$), indicating overlap between behavioral difficulty and the
+structure captured by the 4-5 boundary model. This overlap may be expected if the categorical
+boundary shapes both neural representations and behavioral responses.
+However, the Target PI(2-4) model significantly outperforms the Target PI(2-3) model,
+meaning the specific boundary location at 4-5 matters beyond general
+difficulty. Task difficulty can explain why a boundary-like pattern
+exists in the neural RDM, but it does not predict which boundary
+location fits better.
+
+\paragraph{Low-level visual properties.}
+The Pixel control model, which captures absolute differences in
+white-pixel area between stimulus images, does not reach significance in
+either the with-1 or no-1 whole-epoch analysis
+(Table~\ref{tab:static-model-comparison}). In this stimulus set, total
+white-pixel area is similar within numerosities 1-3 and within 4-6 but
+drops sharply between 3 and 4 (Figure~\ref{fig:static-model-rdms}), so
+the Pixel model's largest predicted dissimilarity falls across the 3-4
+boundary. The neural RDM shows the opposite pattern, with higher
+discriminability across the 4-5 boundary. If low-level visual similarity
+were driving the neural structure, the data would favor a 3-4 boundary,
+not 4-5.
+
+\subsection{Limitations}
+
+Although the Pixel control does not match the neural boundary structure,
+dot-array stimuli covary with low-level properties beyond total area
+(e.g., density, spacing), and visual confounds cannot be fully ruled out
+with the current stimulus set.
+
+Within-ANS structure is difficult to resolve in this dataset because
+the ANS range includes only two numerosities, 5 and 6. A wider
+numerosity range (e.g., extending to 8 or 9) would allow stronger
+tests of ratio-dependent scaling within the ANS region.
+
+The 4-5 boundary reported here is established within this specific
+paradigm. Extension to other tasks and stimulus families should be
+tested directly.
+
+We implemented PI as a categorical model with uniform within-system
+dissimilarity. Whether adding graded structure within the PI range
+would improve model fits has not been tested here.
+
+The no-1 control excludes numerosity~1 from both prime and target
+during classifier training and evaluation. This simultaneously removes
+numerosity~1 as a target and removes all prime-1 conditions (e.g.,
+conditions 12, 13, 14) from the training data for the remaining
+targets. Because targets 2, 3, and 4 each lose a prime-1 condition in
+the no-1 analysis, the classifier trains on a different prime
+composition for these targets, which could influence their learned
+representations independently of removing target~1. Disentangling the
+contributions of prime exclusion from target exclusion warrants further
+study.
+
+\subsection{Summary}
+Both whole-epoch and time-resolved analyses favor a dual-system account
+over continuous magnitude coding, with the PI/ANS boundary at 4-5
+rather than 3-4.
+
+The whole-epoch contrast between Target PI(2-4) and Target PI(2-3) reaches $d = 0.79$
+after excluding numerosity~1, and the RT control model confirms that
+behavioral difficulty tracks the boundary.
+
+Similarly, in the 24-condition temporal analysis, excluding numerosity~1 attenuates
+the distance-related decoding gradient and ANS-model correspondence, while
+preserving the PI boundary signal, suggesting that the boundary reflects
+categorical structure rather than ratio-dependent scaling.
+
+MDS projections show target~1 separating from the main cluster, with
+PI-range targets (2-4) and ANS-range targets (5-6) occupying distinct
+regions.
+
+Future work
+should test whether a 4-5 boundary generalizes to wider numerosity ranges
+(e.g., 5-9) that allow ratio-dependent scaling within the ANS region to
+be resolved, and to developmental populations where PI capacity may
+still be maturing.

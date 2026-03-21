@@ -11,6 +11,8 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
+import matplotlib.image as mpimg
+from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 import networkx as nx
 import numpy as np
 import pandas as pd
@@ -20,12 +22,109 @@ DEFAULT_DPI = 300
 
 def _format_trend_pvalue(pvalue: float | None) -> str:
     if pvalue is None or np.isnan(pvalue):
-        return "p=NA"
+        return "p = NA"
     if pvalue < 1e-4:
-        return "p<0.0001"
+        return "p < 0.0001"
     if pvalue < 1e-3:
-        return "p<0.001"
-    return f"p={pvalue:.3f}"
+        return "p < 0.001"
+    return f"p = {pvalue:.3f}"
+
+
+def _format_linear_trend_ylabel(label: str | None) -> str | None:
+    """Format long y-axis labels so they render cleanly when rotated."""
+    if not label:
+        return label
+    prefix = "Mean share of gaze transitions:"
+    if label.startswith(prefix) and "\n" not in label:
+        rest = label[len(prefix) :].strip()
+        if rest:
+            return f"{prefix}\n{rest}"
+        return prefix
+    return label
+
+
+def _split_title_first_line(title: str | None) -> tuple[str | None, str | None]:
+    """Split a multi-line title into (first_line, remaining_lines)."""
+    if not title:
+        return None, None
+    parts = [p for p in str(title).split("\n")]
+    if not parts:
+        return None, None
+    first = parts[0].strip() or None
+    rest = "\n".join([p for p in parts[1:] if p is not None]).strip() or None
+    return first, rest
+
+
+def _build_linear_trend_title_layout(ax: plt.Axes, title: str | None) -> Dict[str, object]:
+    """Return figure-centered title layout aligned to the axes center.
+
+    We align to the axes center (not the full figure center) so the title visually centers
+    over the plotting region even when large y-labels/legends shift the axes box.
+    """
+    lines = [line.strip() for line in (title or "").split("\n") if line.strip()]
+    pos = ax.get_position()
+    x_center = float(pos.x0 + pos.width / 2.0)
+    # Compact vertical spacing between title lines.
+    y_top = 0.958
+    dy = 0.040
+    ys = [y_top - i * dy for i in range(len(lines))]
+    sizes = [16] + [12] * max(0, len(lines) - 1)
+    weights = ["normal"] * len(lines)
+    return {"x": x_center, "lines": lines, "ys": ys, "sizes": sizes, "weights": weights}
+
+
+def _linear_trend_axes_top_for_title_lines(n_lines: int) -> float:
+    """Return a tuned subplots_adjust(top=...) for title line count."""
+    if n_lines <= 2:
+        return 0.88
+    return 0.83
+
+
+def _apply_linear_trend_yaxis_format(ax: plt.Axes) -> None:
+    """Use consistent 0.1 ticks with one-decimal labels."""
+    ax.yaxis.set_major_locator(mticker.MultipleLocator(0.1))
+    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter("%.1f"))
+
+
+def _add_transition_icon(
+    ax: plt.Axes,
+    image_path: Path,
+    *,
+    xy: tuple[float, float] = (0.5, 0.995),
+    zoom: float = 0.108675,
+) -> AnnotationBbox:
+    """Add a small transition icon image inside the axes (axes-fraction coords)."""
+    arr = mpimg.imread(image_path)
+    image = OffsetImage(arr, zoom=zoom)
+    ab = AnnotationBbox(
+        image,
+        xy=xy,
+        xycoords="axes fraction",
+        frameon=False,
+        box_alignment=(0.5, 1.0),
+        pad=0.0,
+        zorder=0.0,
+    )
+    ax.add_artist(ab)
+    return ab
+
+
+def _apply_linear_trend_title(fig: plt.Figure, ax: plt.Axes, title: str | None) -> Dict[str, object]:
+    layout = _build_linear_trend_title_layout(ax, title)
+    x = layout["x"]
+    for line, y, size, weight in zip(
+        layout["lines"], layout["ys"], layout["sizes"], layout["weights"], strict=False
+    ):
+        fig.text(
+            x,
+            y,
+            line,
+            ha="center",
+            va="top",
+            fontsize=size,
+            fontweight=weight,
+        )
+    return layout
 
 
 def plot_heatmap(
@@ -214,6 +313,8 @@ def plot_linear_trend(
     title: str,
     y_axis_label: str | None = None,
     adult_label: str | None = None,
+    legend_loc: str = "best",
+    transition_icon_path: Path | None = None,
 ) -> None:
     if summary_df.empty or trend_metrics is None:
         fig, ax = plt.subplots(figsize=(6, 4))
@@ -233,12 +334,14 @@ def plot_linear_trend(
     x = infants["cohort"].str.extract(r"(\d+)").astype(float)[0].to_numpy()
     y = infants[value_column].to_numpy()
     coef = trend_metrics.get("coef", 0.0)
-    intercept = trend_metrics.get("intercept", float(np.mean(y) - coef * np.mean(x)))
+    intercept = trend_metrics.get("intercept")
+    if intercept is None or np.isnan(intercept):
+        intercept = float(np.mean(y) - coef * np.mean(x))
     fig, ax = plt.subplots(figsize=(7, 5))
-    ax.scatter(x, y, color="#1f77b4", label="Infant cohorts")
+    ax.scatter(x, y, color="#1f77b4", label="Infant cohort means")
     x_line = np.linspace(x.min(), x.max(), 100) if len(x) > 1 else np.array([x.min(), x.min() + 1])
-    ax.plot(x_line, intercept + coef * x_line, color="#ff7f0e", label="Linear fit")
-    ax.set_xlabel("Age (months)")
+    ax.plot(x_line, intercept + coef * x_line, color="#ff7f0e", label="Linear fit (infants)")
+    ax.set_xlabel("Age (months)", fontsize=13)
     xticks = list(sorted(set(x)))
     tick_labels = [str(int(val)) for val in xticks]
     adult_series = (
@@ -248,33 +351,66 @@ def plot_linear_trend(
     )
     if not adult_series.empty:
         adult_x = (max(xticks) if xticks else 11) + 1
-        ax.scatter([adult_x], adult_series.to_numpy(), color="#f4a261", marker="s", label=adult_label or "Adults")
+        adult_legend_label = (
+            f"{adult_label} (reference)" if adult_label else "Adults (reference)"
+        )
+        ax.scatter(
+            [adult_x],
+            adult_series.to_numpy(),
+            color="#f4a261",
+            marker="s",
+            label=adult_legend_label,
+        )
         xticks.append(adult_x)
         tick_labels.append(adult_label or "Adults")
     ax.set_xticks(xticks)
     ax.set_xticklabels(tick_labels, rotation=30, ha="right")
     axis_label = y_axis_label or f"{label} proportion"
-    ax.set_ylabel(axis_label)
+    axis_label = _format_linear_trend_ylabel(axis_label)
+    ax.set_ylabel(axis_label, fontsize=11)
     combined_values = list(y)
     if not adult_series.empty:
         combined_values.extend(adult_series.to_list())
     max_value = max(combined_values) if combined_values else 0.0
     upper = min(1.0, max(0.35, max_value + 0.1))
     ax.set_ylim(0, upper)
-    ax.set_title(title)
+    _apply_linear_trend_yaxis_format(ax)
+    ax.set_title("")
+    title_lines = [line.strip() for line in (title or "").split("\n") if line.strip()]
     pvalue = trend_metrics.get("pvalue")
     pvalue_text = _format_trend_pvalue(pvalue)
     ax.text(
         0.05,
         0.92,
-        f"coef={coef:.3f}, {pvalue_text}",
+        f"coef = {coef:.3f}, {pvalue_text}",
         transform=ax.transAxes,
         ha="left",
         va="top",
         fontsize=10,
     )
-    ax.legend(loc="upper left", bbox_to_anchor=(0.0, -0.25), ncol=1)
-    plt.subplots_adjust(top=0.84, bottom=0.35, left=0.12, right=0.95)
+    ax.legend(
+        loc=legend_loc,
+        fontsize=9,
+        frameon=True,
+        borderpad=0.3,
+        labelspacing=0.3,
+        handlelength=1.4,
+        handletextpad=0.4,
+        markerscale=0.9,
+    )
+    plt.subplots_adjust(
+        top=_linear_trend_axes_top_for_title_lines(len(title_lines)),
+        bottom=0.18,
+        left=0.12,
+        right=0.95,
+    )
+    layout = _apply_linear_trend_title(fig, ax, title)
+    if transition_icon_path is not None:
+        try:
+            _add_transition_icon(ax, transition_icon_path)
+        except Exception:
+            # Purely presentational; don't fail the analysis if it can't be loaded.
+            pass
     figure_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(figure_path, dpi=DEFAULT_DPI)
     plt.close(fig)

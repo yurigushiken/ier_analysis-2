@@ -1,0 +1,29 @@
+\begin{figure}[!htbp]
+  \centering
+  \begin{minipage}[t]{\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures/temporal_model_differences_with_significance-temporal_change24_all-100-700ms.png}
+    \vspace{-2mm}
+    \subcaption{All pairs (including numerosity 1)}
+  \end{minipage}
+
+  \vspace{2mm}
+
+  \begin{minipage}[t]{\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures-no1/temporal_model_differences_with_significance-temporal_change24_all-100-700ms-no1.png}
+    \vspace{-2mm}
+    \subcaption{Excluding pairs containing numerosity 1}
+  \end{minipage}
+  \caption{Pairwise model-difference tests for the 24-condition analysis
+  (cluster permutation, 10,000 permutations, two-sided, $\alpha = 0.05$).
+  Shaded regions indicate significant clusters.
+  (a)~With numerosity~1 included: Target PI(1-4) exceeds Target PI(1-3) at
+  230-330\,ms ($p = 0.0003$), 490-550\,ms ($p = 0.039$), and
+  570-650\,ms ($p = 0.014$). The PI vs.\ ANS comparison shows a
+  borderline cluster at 90-150\,ms ($p = 0.050$; negative $\Delta z$
+  indicates ANS $>$ Target PI). (b)~In the no-1 variant, Target PI(2-4) exceeds
+  ANS at 170-310\,ms ($p = 0.0006$) and exceeds Target PI(2-3) at 130-350\,ms
+  ($p = 0.0001$) and 390-550\,ms ($p = 0.0007$).}
+  \label{fig:temporal-change24-model-differences}
+\end{figure}

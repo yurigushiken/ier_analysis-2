@@ -1,0 +1,61 @@
+\documentclass{ccn}
+
+\addbibresource{bib/references.bib}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{dblfloatfix}
+\usepackage{placeins}
+
+% Compact but stable float behavior for two-column layout.
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\floatsep}{4pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{4pt plus 2pt minus 2pt}
+\setlength{\intextsep}{4pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% Avoid vertical centering on float-only pages (removes large top whitespace).
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@dblfptop}{0pt}
+\makeatother
+
+\title{Neural Similarity Patterns Support a Categorical Boundary Between 4 and 5 in Numerosity (1-6)}
+\author{}
+
+\begin{document}
+%\linenumbers
+
+\maketitle
+
+\begin{abstract}
+Non-symbolic numerical cognition has been explained by either a single continuous magnitude code or dual representational systems: Parallel Individuation (PI) for small exact sets and the Approximate Number System (ANS) for larger approximate sets. We tested these accounts in 24 adults using single-trial EEG during an oddball change-detection task with dot arrays from 1 to 6. We computed whole-epoch and time-resolved representational dissimilarity matrices and compared them with ANS and PI boundary models at 3-4 and 4-5. With all numerosities included, ANS fits were strong and distance effects were pronounced. After excluding numerosity 1, ANS fits were attenuated while PI boundary structure was preserved. In the no-1 whole-epoch analysis, the Target PI(2-4) model outperformed Target PI(2-3) ($d = 0.79$, $p < 0.001$). Time-resolved model-difference tests also favored the 4-5 boundary across multiple windows. These findings support a dual-system account and place the PI capacity boundary at 4-5 in adults, while also showing that numerosity 1 is a distinct case that can increase the estimated fit of a single continuous magnitude code.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+
+\section{Acknowledgments}
+\begin{center}
+Acknowledgments omitted for double-blind review.
+\end{center}
+
+\printbibliography
+\input{sections/appendix}
+
+\end{document}

@@ -1,23 +1,23 @@
 Tri-argument success linear trend (infants 7-11 months)
-Participants: 41
-Trials: 140
+Participants: 28
+Trials: 79
 
                                GEE Regression Results                              
 ===================================================================================
-Dep. Variable:        tri_argument_success   No. Observations:                  140
-Model:                                 GEE   No. clusters:                       41
+Dep. Variable:        tri_argument_success   No. Observations:                   79
+Model:                                 GEE   No. clusters:                       28
 Method:                        Generalized   Min. cluster size:                   2
-                      Estimating Equations   Max. cluster size:                   5
-Family:                           Binomial   Mean cluster size:                 3.4
+                      Estimating Equations   Max. cluster size:                   4
+Family:                           Binomial   Mean cluster size:                 2.8
 Dependence structure:         Independence   Num. iterations:                     2
-Date:                     Wed, 03 Dec 2025   Scale:                           1.000
-Covariance type:                    robust   Time:                         17:42:56
+Date:                     Sat, 03 Jan 2026   Scale:                           1.000
+Covariance type:                    robust   Time:                         20:28:40
 ===============================================================================
                   coef    std err          z      P>|z|      [0.025      0.975]
 -------------------------------------------------------------------------------
-Intercept      -3.1329      1.258     -2.490      0.013      -5.599      -0.667
-age_numeric     0.3585      0.134      2.674      0.007       0.096       0.621
+Intercept      -1.0911      1.169     -0.933      0.351      -3.383       1.200
+age_numeric     0.2284      0.131      1.741      0.082      -0.029       0.486
 ==============================================================================
-Skew:                         -0.1080   Kurtosis:                      -1.7768
-Centered skew:                -0.1478   Centered kurtosis:             -0.8998
+Skew:                         -1.0311   Kurtosis:                      -0.8534
+Centered skew:                -0.4367   Centered kurtosis:             -0.9862
 ==============================================================================

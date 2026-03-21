@@ -1,24 +1,24 @@
 Processing-efficiency (latency) linear trend
 Infant range: 7–11 months
-Coefficient (ms/month): 22.159
-p-value: 0.6711
+Coefficient (ms/month): 12.847
+p-value: 0.8063
 
                                GEE Regression Results                              
 ===================================================================================
-Dep. Variable:                  latency_ms   No. Observations:                   63
-Model:                                 GEE   No. clusters:                       34
+Dep. Variable:                  latency_ms   No. Observations:                   60
+Model:                                 GEE   No. clusters:                       33
 Method:                        Generalized   Min. cluster size:                   1
-                      Estimating Equations   Max. cluster size:                   5
-Family:                           Gaussian   Mean cluster size:                 1.9
+                      Estimating Equations   Max. cluster size:                   4
+Family:                           Gaussian   Mean cluster size:                 1.8
 Dependence structure:         Independence   Num. iterations:                     2
-Date:                     Fri, 28 Nov 2025   Scale:                      257832.382
-Covariance type:                    robust   Time:                         07:33:21
+Date:                     Sat, 03 Jan 2026   Scale:                      256091.747
+Covariance type:                    robust   Time:                         20:29:02
 ===============================================================================
                   coef    std err          z      P>|z|      [0.025      0.975]
 -------------------------------------------------------------------------------
-Intercept    1011.5204    470.131      2.152      0.031      90.080    1932.961
-age_numeric    22.1590     52.179      0.425      0.671     -80.110     124.428
+Intercept    1095.1790    473.644      2.312      0.021     166.854    2023.504
+age_numeric    12.8473     52.384      0.245      0.806     -89.824     115.518
 ==============================================================================
-Skew:                          0.6153   Kurtosis:                      -0.9336
-Centered skew:                 0.0451   Centered kurtosis:              1.4294
+Skew:                          0.6211   Kurtosis:                      -0.9286
+Centered skew:                -0.0270   Centered kurtosis:              1.3452
 ==============================================================================

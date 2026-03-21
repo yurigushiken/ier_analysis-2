@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(cat:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(python -m src.generator:*)",
+      "Bash(for yaml in analyses/gaze_transition_analysis/*.yaml)",
+      "Bash(do echo \"Running $yaml...\")",
+      "Bash(python -m analyses.gaze_transition_analysis.run:*)",
+      "Bash(done)",
+      "Bash(wc:*)",
+      "Bash(python -c:*)"
     ],
     "deny": [],
     "ask": []

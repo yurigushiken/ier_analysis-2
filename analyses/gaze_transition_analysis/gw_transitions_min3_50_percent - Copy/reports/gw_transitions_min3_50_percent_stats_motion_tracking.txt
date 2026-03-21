@@ -1,0 +1,50 @@
+GEE results for Motion Tracking
+Reference cohort: 7-month-olds
+Participants: 56
+Trials: 172
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:         motion_tracking_pct   No. Observations:                  172
+Model:                                 GEE   No. clusters:                       56
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   5
+Family:                           Gaussian   Mean cluster size:                 3.1
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Wed, 10 Dec 2025   Scale:                           0.088
+Covariance type:                    robust   Time:                         19:54:31
+===================================================================================================================================
+                                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                           0.4340      0.099      4.370      0.000       0.239       0.629
+C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]      0.0737      0.153      0.482      0.630      -0.226       0.374
+C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]     -0.3120      0.107     -2.909      0.004      -0.522      -0.102
+C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]    -0.1909      0.116     -1.648      0.099      -0.418       0.036
+C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]    -0.3465      0.110     -3.137      0.002      -0.563      -0.130
+C(cohort, Treatment(reference='7-month-olds'))[T.Adults]           -0.2098      0.119     -1.770      0.077      -0.442       0.023
+==============================================================================
+Skew:                          0.8169   Kurtosis:                      -0.3405
+Centered skew:                 0.2682   Centered kurtosis:              1.7914
+==============================================================================
+
+Linear Trend Test (Motion Tracking, infants 7-11 mo)
+
+                               GEE Regression Results                              
+===================================================================================
+Dep. Variable:         motion_tracking_pct   No. Observations:                  131
+Model:                                 GEE   No. clusters:                       42
+Method:                        Generalized   Min. cluster size:                   1
+                      Estimating Equations   Max. cluster size:                   5
+Family:                           Gaussian   Mean cluster size:                 3.1
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Wed, 10 Dec 2025   Scale:                           0.098
+Covariance type:                    robust   Time:                         19:54:31
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       1.1055      0.267      4.140      0.000       0.582       1.629
+age_numeric    -0.0913      0.027     -3.353      0.001      -0.145      -0.038
+==============================================================================
+Skew:                          0.7684   Kurtosis:                      -0.6411
+Centered skew:                 0.1711   Centered kurtosis:              1.1941
+==============================================================================

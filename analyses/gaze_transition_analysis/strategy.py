@@ -100,7 +100,7 @@ def build_strategy_summary(
     *,
     cohorts: List[Dict],
 ) -> pd.DataFrame:
-    """Average strategy proportions per cohort."""
+    """Average strategy proportions per cohort (participant-weighted)."""
     if proportions_df.empty:
         return pd.DataFrame(
             columns=[
@@ -115,8 +115,29 @@ def build_strategy_summary(
         lambda age: _assign_cohort(age, cohorts)
     )
     working = working.dropna(subset=["cohort"])
+    if working.empty:
+        return pd.DataFrame(
+            columns=[
+                "cohort",
+                AGENT_AGENT_ATTENTION_MEAN,
+                AGENT_OBJECT_BINDING_MEAN,
+                MOTION_TRACKING_MEAN,
+            ]
+        )
+
+    participant_df = _build_participant_level_strategy_values(working)
+    if participant_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "cohort",
+                AGENT_AGENT_ATTENTION_MEAN,
+                AGENT_OBJECT_BINDING_MEAN,
+                MOTION_TRACKING_MEAN,
+            ]
+        )
+
     grouped = (
-        working.groupby("cohort")
+        participant_df.groupby("cohort")
         .agg(
             **{
                 AGENT_AGENT_ATTENTION_MEAN: (AGENT_AGENT_ATTENTION_PCT, "mean"),
@@ -134,10 +155,10 @@ def build_strategy_descriptive_stats(
     *,
     cohorts: List[Dict],
 ) -> pd.DataFrame:
-    """Return mean/SEM per strategy/cohort."""
+    """Return participant-level mean/SEM per strategy/cohort."""
     if proportions_df.empty:
         return pd.DataFrame(
-            columns=["cohort", "strategy", "mean", "sem", "n_trials"]
+            columns=["cohort", "strategy", "mean", "sem", "n_trials", "n_participants"]
         )
     working = proportions_df.copy()
     working["cohort"] = working["participant_age_months"].apply(
@@ -146,16 +167,28 @@ def build_strategy_descriptive_stats(
     working = working.dropna(subset=["cohort"])
     if working.empty:
         return pd.DataFrame(
-            columns=["cohort", "strategy", "mean", "sem", "n_trials"]
+            columns=["cohort", "strategy", "mean", "sem", "n_trials", "n_participants"]
         )
+
+    participant_df = _build_participant_level_strategy_values(working)
+    if participant_df.empty:
+        return pd.DataFrame(
+            columns=["cohort", "strategy", "mean", "sem", "n_trials", "n_participants"]
+        )
+
+    trials_per_cohort = working.groupby("cohort").size().to_dict()
+    participants_per_cohort = participant_df.groupby("cohort").size().to_dict()
+
     rows = []
-    for cohort, cohort_df in working.groupby("cohort"):
-        n_trials = len(cohort_df)
+    for cohort, cohort_participants in participant_df.groupby("cohort"):
+        n_trials = int(trials_per_cohort.get(cohort, 0))
+        n_participants = int(participants_per_cohort.get(cohort, 0))
         for col, label in STRATEGY_COLUMNS:
-            mean = float(cohort_df[col].mean())
-            if n_trials > 1:
-                std = float(cohort_df[col].std(ddof=1))
-                sem = std / math.sqrt(n_trials)
+            values = cohort_participants[col].astype(float)
+            mean = float(values.mean()) if not values.empty else float("nan")
+            if n_participants > 1:
+                std = float(values.std(ddof=1))
+                sem = std / math.sqrt(n_participants)
             else:
                 sem = 0.0
             rows.append(
@@ -165,9 +198,62 @@ def build_strategy_descriptive_stats(
                     "mean": mean,
                     "sem": sem,
                     "n_trials": n_trials,
+                    "n_participants": n_participants,
                 }
             )
     return pd.DataFrame(rows)
+
+
+def _build_participant_level_strategy_values(trial_level_df: pd.DataFrame) -> pd.DataFrame:
+    """Collapse trial-level strategy proportions to one row per participant/cohort.
+
+    Within each participant, trials are weighted by total transitions (if available).
+    """
+    if trial_level_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "cohort",
+                "participant_id",
+                AGENT_AGENT_ATTENTION_PCT,
+                AGENT_OBJECT_BINDING_PCT,
+                MOTION_TRACKING_PCT,
+            ]
+        )
+    working = trial_level_df.copy()
+    if "total_transitions" in working.columns:
+        weights = working["total_transitions"].fillna(0).astype(float)
+    else:
+        weights = pd.Series(1.0, index=working.index)
+        working["total_transitions"] = weights
+
+    weighted_cols = {}
+    for col, _label in STRATEGY_COLUMNS:
+        temp = f"__weighted_{col}"
+        working[temp] = working[col].astype(float) * weights
+        weighted_cols[col] = temp
+
+    agg_spec = {"total_transitions": ("total_transitions", "sum")}
+    for original, temp in weighted_cols.items():
+        agg_spec[temp] = (temp, "sum")
+
+    grouped = (
+        working.groupby(["cohort", "participant_id"])
+        .agg(**agg_spec)
+        .reset_index()
+    )
+    denom = grouped["total_transitions"].replace(0, pd.NA)
+    for original, temp in weighted_cols.items():
+        grouped[original] = grouped[temp] / denom
+
+    return grouped[
+        [
+            "cohort",
+            "participant_id",
+            AGENT_AGENT_ATTENTION_PCT,
+            AGENT_OBJECT_BINDING_PCT,
+            MOTION_TRACKING_PCT,
+        ]
+    ]
 
 
 def _assign_cohort(age: float, cohorts: List[Dict]) -> str | None:
@@ -283,12 +369,13 @@ def run_linear_trend_test(
     except ValueError:
         return {}, f"{metric_label}: linear trend failed to converge."
     coef = float(result.params.get("age_numeric", 0.0))
+    intercept = float(result.params.get("Intercept", float("nan")))
     pvalue = float(result.pvalues.get("age_numeric", float("nan")))
     lines = [
         f"Linear Trend Test ({metric_label}, infants {min_age}-{max_age} mo)",
         result.summary().as_text(),
     ]
-    return {"coef": coef, "pvalue": pvalue}, "\n\n".join(lines)
+    return {"coef": coef, "intercept": intercept, "pvalue": pvalue}, "\n\n".join(lines)
 def build_significance_annotations(
     gee_results: pd.DataFrame,
     *,

@@ -3,9 +3,9 @@ Hypothesis: Infants younger than 10 months will fail to fixate all three argumen
 Prediction: 10+ month infants and adults will show higher tri-argument fixation rates than 7–9 month infants.
 
 Results:
-- 7-month-olds: 8/23 trials (34.8% coverage, 7 participants)
-- 8-month-olds: 10/25 trials (40.0% coverage, 7 participants)
-- 9-month-olds: 14/32 trials (43.8% coverage, 9 participants)
-- 10-month-olds: 24/39 trials (61.5% coverage, 11 participants)
-- 11-month-olds: 14/21 trials (66.7% coverage, 7 participants)
-- Adults: 28/40 trials (70.0% coverage, 13 participants)
+- 7-month-olds: 7/11 trials (63.6% coverage, 4 participants)
+- 8-month-olds: 8/15 trials (53.3% coverage, 5 participants)
+- 9-month-olds: 14/25 trials (56.0% coverage, 8 participants)
+- 10-month-olds: 24/37 trials (64.9% coverage, 11 participants)
+- 11-month-olds: 11/13 trials (84.6% coverage, 5 participants)
+- Adults: 28/39 trials (71.8% coverage, 13 participants)

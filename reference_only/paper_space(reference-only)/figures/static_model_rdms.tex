@@ -1,0 +1,37 @@
+\begin{figure*}[!t]
+  \centering
+  \begin{minipage}{\textwidth}
+    \centering
+    \textbf{(a)} Target-only analysis (numerosities 1-6)\par\smallskip
+    \includegraphics[width=\textwidth]{../results/analysis-lda/static-change6/static_change6_all/figures-pairwise/temporal_model_rdms_all_compact_row-static_change6_all-pairwise.png}
+  \end{minipage}
+  \vspace{4pt}
+  \begin{minipage}{\textwidth}
+    \centering
+    \textbf{(b)} Target-only no-1 analysis (numerosities 2-6)\par\smallskip
+    \includegraphics[width=\textwidth]{../results/analysis-lda/static-change5/static_change5_all/figures-pairwise/temporal_model_rdms_all_compact_row-static_change5_all-pairwise.png}
+  \end{minipage}
+  \caption{Brain and model RDMs (0-700 ms). Brain RDMs show mean
+  balanced accuracy (\%) across subjects. Model RDMs show predicted
+  dissimilarity for each theoretical model. The RT model shows absolute
+  differences in grand-mean reaction time. The Pixel model shows
+  absolute differences in white-pixel area. In this stimulus set, total
+  area is similar within numerosities 1-3 and within 4-6 but drops
+  sharply between 3 and 4, so the Pixel model's largest discontinuity
+  falls at 3-4. (a)~Target numerosities 1-6. Pairs involving
+  numerosity~1 show the highest discriminability, giving the brain RDM
+  an ANS-like gradient dominated by distance from~1
+  (Table~\ref{tab:static-model-comparison}). In the boundary region,
+  pairs 4-5 and 4-6 show slightly higher discriminability than pairs 2-4
+  and 3-4, consistent with a boundary at 4-5 rather than 3-4.
+  (b)~Target numerosities 2-6 (numerosity~1 excluded from both prime and
+  target during training and evaluation). With numerosity~1 removed, the
+  boundary structure becomes clearer. Pairs crossing the 4-5 boundary
+  (4-5, 4-6) show higher discriminability than pairs within the PI range
+  (2-4, 3-4), matching the Target PI(2-4) prediction
+  (Table~\ref{tab:static-model-comparison}). The Pixel model predicts
+  the opposite pattern, with highest dissimilarity across the 3-4
+  boundary, and does not reach significance
+  (Table~\ref{tab:static-model-comparison}).}
+  \label{fig:static-model-rdms}
+\end{figure*}

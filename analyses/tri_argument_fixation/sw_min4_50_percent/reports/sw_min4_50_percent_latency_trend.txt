@@ -1,7 +1,7 @@
 Processing-efficiency (latency) linear trend
 Infant range: 7–11 months
-Coefficient (ms/month): -7.026
-p-value: 0.8930
+Coefficient (ms/month): -11.569
+p-value: 0.8232
 
                                GEE Regression Results                              
 ===================================================================================
@@ -11,14 +11,14 @@ Method:                        Generalized   Min. cluster size:                 
                       Estimating Equations   Max. cluster size:                   4
 Family:                           Gaussian   Mean cluster size:                 1.8
 Dependence structure:         Independence   Num. iterations:                     2
-Date:                     Fri, 28 Nov 2025   Scale:                      257664.928
-Covariance type:                    robust   Time:                         07:33:53
+Date:                     Sat, 03 Jan 2026   Scale:                      257482.102
+Covariance type:                    robust   Time:                         20:29:13
 ===============================================================================
                   coef    std err          z      P>|z|      [0.025      0.975]
 -------------------------------------------------------------------------------
-Intercept    1304.1594    469.852      2.776      0.006     383.267    2225.052
-age_numeric    -7.0257     52.249     -0.134      0.893    -109.432      95.381
+Intercept    1346.2199    464.372      2.899      0.004     436.067    2256.373
+age_numeric   -11.5693     51.774     -0.223      0.823    -113.044      89.905
 ==============================================================================
-Skew:                          0.5327   Kurtosis:                      -1.0469
-Centered skew:                -0.2212   Centered kurtosis:              1.4303
+Skew:                          0.5367   Kurtosis:                      -1.0510
+Centered skew:                -0.1692   Centered kurtosis:              0.9368
 ==============================================================================

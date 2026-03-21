@@ -1,0 +1,117 @@
+\section{Results}
+
+\subsection{Distance-Dependent Decoding}
+If numerosity is represented as a continuous magnitude, conditions that
+are numerically farther apart should produce more distinct neural
+patterns and thus higher decoding accuracy. We tested this by grouping
+condition-pair decoding accuracies by the absolute difference between
+the two conditions' target numerosities and computing the group mean at
+each time window.
+Figure~\ref{fig:temporal-distance}a shows that pairs separated by
+greater numerical distance tend to be decoded more accurately, with
+the clearest graded ordering by distance in early (80-200 ms) and mid-latency
+(340-500 ms) windows. Across all six numerosities, this graded pattern is consistent with a
+distance-dependent neural code.
+
+\paragraph{The ``No-1'' control.}
+To assess whether the distance gradient is driven by the inclusion of
+numerosity~1, we repeated the analysis excluding all pairs
+containing ``1'' (Figure~\ref{fig:temporal-distance}b). Sustained
+separation by numerical distance largely disappears, with the clearest
+residual distance-related gradient limited to approximately 80-120 ms. This suggests that
+numerosity~1 disproportionately drives discriminability.
+
+\input{figures/temporal_distance}
+
+\subsection{Whole-Epoch Analysis}
+To compare candidate representational structures, we computed
+whole-epoch target RDMs and compared them to theoretical models
+(Table~\ref{tab:static-model-comparison},
+Figure~\ref{fig:static-model-rdms}).
+
+\input{figures/table_static_model_comparison}
+
+When all six target numerosities (1-6) were included, ANS, Target
+PI(1-4), and Target PI(1-3) were all significant
+(Table~\ref{tab:static-model-comparison}),
+with ANS showing the highest correlation. Target PI(1-4) outperformed
+Target PI(1-3) ($d = 0.53$, $p = 0.017$). The Pixel control did not
+reach significance, suggesting that low-level image similarity does not
+account for the observed neural dissimilarity structure. RT was significant ($r = 0.162$, $p = 0.005$),
+indicating that neural dissimilarity structure covaries with RT
+differences.
+
+After excluding numerosity~1, Target PI(2-4) remained significant ($r = 0.269$,
+$p_{\text{Holm}} = 0.003$), while Target PI(2-3) ($r = 0.076$) and ANS
+($r = 0.074$) did not reach significance. The boundary contrast strengthened to $d = 0.79$ ($p < 0.001$).
+The Pixel control remained non-significant, whereas RT remained
+significant ($r = 0.268$, $p_{\text{Holm}} = 0.007$).
+Among the numerosity models, only Target PI(2-4) remained significant
+when numerosity~1 was removed.
+
+\paragraph{Multidimensional scaling.} MDS of the whole-epoch brain RDM
+(Figure~\ref{fig:static-change6-mds}) visualizes this structure.
+Numerosity~1 is isolated, PI-range
+numerosities (2-4) group together, and ANS-range numerosities (5-6)
+occupy a separate region, consistent with a categorical boundary at 4-5
+and with numerosity~1 as a distinct representational case.
+
+\input{figures/static_change6_mds}
+
+\subsection{Time-Resolved Analysis}
+%% Queue full-width figures early so LaTeX places them efficiently.
+\input{figures/temporal_change24_rdm_snapshots}
+\input{figures/temporal_rdm_evolution}
+\input{figures/temporal_change24_model_rdms_compact}
+To compare candidate representational structures over time, we
+computed time-resolved neural RDMs and compared them to theoretical
+models (Figures~\ref{fig:temporal-change24-model-fits}-\ref{fig:temporal-change24-model-rdms};
+Appendix Table~\ref{tab:appendix-temporal-model-fit-clusters}).
+Figure~\ref{fig:temporal-change24-rdm-snapshots} depicts the evolving
+representational structure across all 24 prime-target conditions, with
+each panel showing the mean neural RDM in a 100 ms bin.
+Figure~\ref{fig:temporal-change24-model-fits} plots the corresponding
+time-resolved model-fit trajectories, with bottom bars marking
+significant clusters, and
+Figure~\ref{fig:temporal-change24-model-rdms} presents the mean brain RDM
+(0-700 ms average) alongside the theoretical model RDMs.
+
+When all 24 prime-target conditions were included (with numerosity~1;
+Figure~\ref{fig:temporal-change24-model-fits}a), Target PI(1-4) showed
+two significant clusters (50-250 ms and 270-550 ms, both $p < 0.001$),
+and ANS also showed two significant clusters (30-230 ms and 290-530 ms,
+both $p < 0.001$). ANS reached the highest single-window model-brain
+correlation in the with-1 condition. Full model-fit cluster windows are
+reported in Appendix Table~\ref{tab:appendix-temporal-model-fit-clusters}.
+
+When pairs containing ``1'' were excluded
+(Figure~\ref{fig:temporal-change24-model-fits}b), Target PI(2-4)
+remained significant in two clusters (50-230 ms and 250-510 ms, both
+$p < 0.001$), whereas ANS remained significant in narrower clusters
+(50-190 ms, $p < 0.001$, and 410-510 ms, $p = 0.003$). This pattern
+indicates that removing numerosity~1 attenuates ANS breadth while
+preserving 4-5 boundary structure.
+
+\paragraph{Model-difference tests.}
+Table~\ref{tab:model-differences}
+shows that the 4-5 boundary captures neural structure better than the
+3-4 alternative. Target PI(1-4) significantly outperforms Target PI(1-3)
+at 230-330 ms ($p < 0.001$), 490-550 ms ($p = 0.039$), and 570-650 ms
+($p = 0.014$). A two-sided Target PI(1-4) vs.\ ANS comparison yields one cluster
+at 90-150 ms ($p = 0.050$) in which ANS fits the brain data better
+than Target PI (negative $\Delta z$). In the no-1 variant, Target PI(2-4)
+exceeds ANS at 170-310 ms ($p < 0.001$) and exceeds Target PI(2-3) at
+130-350 ms ($p < 0.001$) and 390-550 ms ($p < 0.001$). Together,
+these temporal comparisons converge with the whole-epoch results and
+show stronger support for the 4-5 boundary when numerosity~1 is
+excluded.
+
+\input{figures/table_model_differences}
+
+\paragraph{Multidimensional scaling.} MDS of the 24-condition neural
+RDM (Figure~\ref{fig:temporal-change24-mds}) provides visual
+confirmation. Conditions separate by target system membership, with target-1
+pairs forming an isolated cluster, PI-range targets (2-4) grouping
+centrally, and ANS-range targets (5-6) occupying a distinct region.
+
+\input{figures/temporal_change24_mds}

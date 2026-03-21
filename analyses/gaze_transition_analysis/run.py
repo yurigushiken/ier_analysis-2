@@ -86,9 +86,15 @@ def run_analysis(config_path: Path) -> None:
     display_order = [reference_label] + [label for label in cohort_labels if label != reference_label]
     condition_label = _condition_label(condition_codes)
     arrow = "↔"
-    social_caption = f"Fixations man_face {arrow} woman_face ('agent-agent attention')"
-    mechanical_caption = f"Fixations toy {arrow} body ('motion tracking')"
-    object_caption = f"Fixations face {arrow} toy ('agent-object binding')"
+    social_caption = f"man's face {arrow} woman's face"
+    mechanical_caption = f"toy {arrow} body"
+    object_caption = f"face {arrow} toy"
+
+    project_root = Path(__file__).resolve().parents[2]
+    media_dir = project_root / "presentation" / "media"
+    icon_face_face = media_dir / "face-face.png"
+    icon_toy_body = media_dir / "toy-body.png"
+    icon_toy_face = media_dir / "toy-face.png"
 
     social_gee, social_gee_report = strategy.run_strategy_gee(
         strategy_df,
@@ -135,9 +141,11 @@ def run_analysis(config_path: Path) -> None:
         figure_path=figures_dir / f"{config_name}_linear_trend_agent_agent_attention.png",
         value_column=strategy.AGENT_AGENT_ATTENTION_MEAN,
         label="Agent-Agent Attention",
-        title="\n".join([condition_label, social_caption, "Linear trend across infant cohorts"]),
-        y_axis_label=f"man_face {arrow} woman_face",
+        title="\n".join([condition_label, social_caption]),
+        y_axis_label=f"Mean share of gaze transitions: man's face {arrow} woman's face",
         adult_label=adult_label,
+        legend_loc="lower right",
+        transition_icon_path=icon_face_face,
     )
 
     mechanical_gee, mechanical_gee_report = strategy.run_strategy_gee(
@@ -185,9 +193,11 @@ def run_analysis(config_path: Path) -> None:
         figure_path=figures_dir / f"{config_name}_linear_trend_motion_tracking.png",
         value_column=strategy.MOTION_TRACKING_MEAN,
         label="Motion Tracking",
-        title="\n".join([condition_label, mechanical_caption, "Linear trend across infant cohorts"]),
-        y_axis_label=f"toy {arrow} body",
+        title="\n".join([condition_label, mechanical_caption]),
+        y_axis_label=f"Mean share of gaze transitions: toy {arrow} body",
         adult_label=adult_label,
+        legend_loc="upper right",
+        transition_icon_path=icon_toy_body,
     )
 
     object_gee, object_gee_report = strategy.run_strategy_gee(
@@ -235,9 +245,11 @@ def run_analysis(config_path: Path) -> None:
         figure_path=figures_dir / f"{config_name}_linear_trend_agent_object_binding.png",
         value_column=strategy.AGENT_OBJECT_BINDING_MEAN,
         label="Agent-Object Binding",
-        title="\n".join([condition_label, object_caption, "Linear trend across infant cohorts"]),
-        y_axis_label=f"face {arrow} toy",
+        title="\n".join([condition_label, object_caption]),
+        y_axis_label=f"Mean share of gaze transitions: face {arrow} toy",
         adult_label=adult_label,
+        legend_loc="lower right",
+        transition_icon_path=icon_toy_face,
     )
     _write_text_report(
         transitions_df,
@@ -262,8 +274,8 @@ def _determine_output_root(config: Dict, config_path: Path) -> Path:
 
 def _condition_label(codes: List[str]) -> str:
     mapping = {
-        "gw": "Give with Toy",
-        "sw": "Show",
+        "gw": "GIVE",
+        "sw": "SHOW",
         "gwo": "Give (no toy)",
         "swo": "Show (no toy)",
         "ugw": "Upside-down Give with Toy",

@@ -1,0 +1,28 @@
+\begin{figure}[t]
+  \centering
+  \begin{minipage}[t]{0.98\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures/temporal_model_fits_binned-temporal_change24_all-100-700ms.png}
+    \vspace{-2mm}
+    \subcaption{All pairs (including numerosity 1)}
+  \end{minipage}
+  \vspace{1mm}
+  \begin{minipage}[t]{0.98\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures-no1/temporal_model_fits_binned-temporal_change24_all-100-700ms-no1.png}
+    \vspace{-2mm}
+    \subcaption{Excluding pairs containing numerosity 1}
+  \end{minipage}
+  \caption{Time-binned model-brain correlations for the 24-condition
+  prime-target analysis. Bars show mean Spearman correlation between
+  neural and model RDMs within 100\,ms bins ($N = 24$; error bars:
+  95\% CI). (a)~With all pairs, ANS and Target PI(1-4) show similar
+  correlations, particularly in the 100-200\,ms bin. (b)~After
+  excluding pairs containing numerosity~1, Target PI(2-4) exceeds ANS
+  in early and mid-latency bins while ANS drops to near zero from
+  200\,ms onward. Model-difference tests show Target PI(2-4) $>$ ANS
+  (170-310\,ms, $p = 0.0006$; two-sided). The shift between panels
+  suggests that the presence of numerosity~1 can disproportionately
+  boost ANS model fits in this analysis.}
+  \label{fig:temporal-model-comparison}
+\end{figure}

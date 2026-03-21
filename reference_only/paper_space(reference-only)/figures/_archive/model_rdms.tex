@@ -1,0 +1,26 @@
+\begin{figure*}[tb]
+  \centering
+  % Row 1: 6x6 composite
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change6_acc1/figures/static_change6_acc1__model_comparison_rdms__notitle.png}
+    \vspace{-2mm}
+    \subcaption{6 $\times$ 6 change6 matrix}
+  \end{minipage}
+  \hfill
+  % Row 1: 24x24 composite
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/figures/static_change24_acc1__model_comparison_rdms__notitle.png}
+    \vspace{-2mm}
+    \subcaption{24 $\times$ 24 change matrix}
+  \end{minipage}
+  \caption{Model and brain RDMs (lower triangles) for both matrix types.
+  Each panel shows: Brain RDM (top-left), Target PI(1-4) hybrid (top-right),
+  Target PI(1-3) hybrid (bottom-left), and ANS log-ratio model (bottom-right).
+  (a) 6 $\times$ 6 change6 matrix with annotated dissimilarity values.
+  (b) 24 $\times$ 24 change matrix (seed 49). Darker colors indicate
+  greater dissimilarity. The Pixel model (not shown) yielded no significant
+  correlation with brain RDMs.}
+  \label{fig:model-rdms}
+\end{figure*}

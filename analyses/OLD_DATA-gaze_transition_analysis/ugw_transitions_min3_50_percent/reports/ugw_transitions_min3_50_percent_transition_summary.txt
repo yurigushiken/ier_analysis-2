@@ -1,0 +1,45 @@
+Condition: Upside-down Give with Toy
+Total transitions counted: 443
+
+Top cohort transition pairs:
+10-month-olds:
+  toy_present -> woman_body: mean 0.59
+  man_body -> toy_present: mean 0.52
+  woman_body -> toy_present: mean 0.45
+  toy_present -> man_face: mean 0.31
+  man_face -> toy_present: mean 0.24
+
+11-month-olds:
+  man_face -> toy_present: mean 0.55
+  toy_present -> woman_body: mean 0.50
+  man_body -> man_face: mean 0.45
+  woman_body -> toy_present: mean 0.40
+  man_body -> toy_present: mean 0.35
+
+7-month-olds:
+  man_body -> man_face: mean 0.70
+  man_face -> man_body: mean 0.40
+  man_face -> toy_present: mean 0.40
+  toy_present -> woman_body: mean 0.40
+  woman_body -> toy_present: mean 0.20
+
+8-month-olds:
+  man_body -> man_face: mean 0.44
+  man_body -> toy_present: mean 0.44
+  toy_present -> woman_body: mean 0.44
+  woman_body -> toy_present: mean 0.44
+  man_face -> toy_present: mean 0.25
+
+9-month-olds:
+  man_body -> toy_present: mean 0.70
+  toy_present -> woman_body: mean 0.61
+  woman_body -> toy_present: mean 0.30
+  man_body -> man_face: mean 0.22
+  woman_body -> man_body: mean 0.17
+
+Adults:
+  toy_present -> woman_body: mean 0.61
+  man_body -> toy_present: mean 0.56
+  woman_body -> toy_present: mean 0.56
+  man_face -> toy_present: mean 0.42
+  toy_present -> man_body: mean 0.36

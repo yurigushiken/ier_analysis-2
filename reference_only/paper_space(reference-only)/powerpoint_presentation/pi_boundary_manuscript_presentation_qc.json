@@ -1,0 +1,29 @@
+{
+  "included_assets": [
+    "D:\\eeg_nn\\paper_space\\media\\trial_structure.png",
+    "D:\\eeg_nn\\paper_space\\media\\conditions-24.png",
+    "D:\\eeg_nn\\paper_space\\media\\conditions-6.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures\\temporal_distance_timecourse.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures-no1\\temporal_distance_timecourse.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\static-change6\\static_change6_all\\figures-pairwise\\temporal_model_rdms_all_compact_row-static_change6_all-pairwise.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\static-change5\\static_change5_all\\figures-pairwise\\temporal_model_rdms_all_compact_row-static_change5_all-pairwise.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\static-change6\\static_change6_all\\figures-pairwise\\mds_category-static_change6_all-pairwise-notitle.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures\\temporal_model_rdms_all_compact_row-temporal_change24_all-100-700ms-RT.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures-no1\\temporal_model_rdms_all_compact_row-temporal_change24_all-100-700ms-no1-RT.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures\\temporal_rdm_snapshots-temporal_change24_all-100-700ms.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures\\temporal_model_fits_with_significance-temporal_change24_all-100-700ms-with_RT.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures-no1\\temporal_model_fits_with_significance-temporal_change24_all-100-700ms-no1-with_RT.png",
+    "D:\\eeg_nn\\results\\analysis-lda\\temporal_change24_all-100-700ms\\figures\\temporal_mds_static_0-700ms-change_code-temporal_change24_all-100-700ms.png",
+    "D:\\eeg_nn\\paper_space\\powerpoint_presentation\\media\\workflow_diagram.png",
+    "D:\\eeg_nn\\paper_space\\powerpoint_presentation\\media\\sliding_window_diagram.png"
+  ],
+  "missing_assets": [],
+  "required_coverage": {
+    "slide_count_10_to_20": true,
+    "change6_and_change5_static_rdms": true,
+    "change24_no1_temporal_rdms": true,
+    "temporal_fits_with_and_no1": true,
+    "mds_static_and_temporal": true
+  },
+  "slide_count": 20
+}

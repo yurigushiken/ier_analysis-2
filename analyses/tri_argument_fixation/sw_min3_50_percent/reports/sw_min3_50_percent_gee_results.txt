@@ -1,22 +1,22 @@
 GEE (Binomial, logit link) results
 Descriptive statistics:
-  Trials per participant - min: 2, max: 6, mean: 3.45
-  Class balance - successes: 94, failures: 106
+  Trials per participant - min: 2, max: 5, mean: 3.21
+  Class balance - successes: 91, failures: 79
 
-Observations: 200
-Participants: 58
+Observations: 170
+Participants: 53
 
 Model diagnostics:
-  QIC: (np.float64(262.40913295944773), np.float64(271.177076981641))
+  QIC: (229.19047417815023, 238.50495480295896)
   Scale parameter: 1.000
   Covariance type: robust
   Working correlation parameter: not estimated (independence)
 
 Coefficient Summary (reference cohort: 7-month-olds)
 Term                                Coef     Std Err         z     P>|z|      [0.025      0.975]
-Intercept                        -0.5878      0.3296    -1.783    0.0745     -1.2338      0.0582
-C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]    0.4336      0.6839     0.634    0.5261     -0.9069      1.7741
-C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]   -0.5516      0.4997    -1.104    0.2697     -1.5311      0.4278
-C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]    0.3765      0.5073     0.742    0.4580     -0.6178      1.3708
-C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]    0.7954      0.4444     1.790    0.0735     -0.0756      1.6664
-C(cohort, Treatment(reference='7-month-olds'))[T.Adults]    1.3137      0.4552     2.886    0.0039      0.4216      2.2059
+Intercept                        -0.1823      0.2934    -0.621    0.5344     -0.7575      0.3928
+C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]    0.0953      0.6185     0.154    0.8775     -1.1170      1.3076
+C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]   -0.4367      0.4452    -0.981    0.3266     -1.3092      0.4358
+C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]    0.1217      0.5005     0.243    0.8079     -0.8593      1.1027
+C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]    0.6523      0.4174     1.563    0.1181     -0.1658      1.4704
+C(cohort, Treatment(reference='7-month-olds'))[T.Adults]    0.9083      0.4297     2.114    0.0346      0.0660      1.7505

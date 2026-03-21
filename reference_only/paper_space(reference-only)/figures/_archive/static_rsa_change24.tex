@@ -1,0 +1,31 @@
+\begin{figure*}[tb]
+  \centering
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/figures/static_change24_acc1__brain_rdm_heatmap_BalancedAccuracy__notitle_clean.png}
+    \vspace{-2mm}
+    \subcaption{Brain RDM (24 $\times$ 24)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/figures/static_change24_acc1__mds_BalancedAccuracy__notitle.png}
+    \vspace{-2mm}
+    \subcaption{MDS embedding}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/figures/static_change24_acc1__model_comparison_bars__notitle.png}
+    \vspace{-2mm}
+    \subcaption{Model comparison}
+  \end{minipage}
+  \caption{Static RSA for the 24 $\times$ 24 change-detection matrix
+  (correct trials, seed 49). Conditions are labeled as two-digit codes
+  where the first digit is the prime numerosity and the second is the target
+  (e.g., ``42'' = prime 4, target 2). (a) Neural RDM showing pairwise
+  decoding accuracy. (b) MDS embedding colored by target numerosity;
+  clusters form by target number. (c) Model comparison showing Spearman
+  correlations with noise ceiling. Error bars show 95\% CI.}
+  \label{fig:static-rsa-change24}
+\end{figure*}

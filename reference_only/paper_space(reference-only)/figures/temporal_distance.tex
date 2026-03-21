@@ -1,0 +1,27 @@
+\begin{figure}[!tbp]
+  \centering
+  \begin{minipage}[t]{\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures/temporal_distance_timecourse.png}
+    \vspace{-2mm}
+    \subcaption{All pairs (including numerosity 1)}
+  \end{minipage}
+
+  \vspace{2mm}
+
+  \begin{minipage}[t]{\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../results/analysis-lda/temporal_change24_all-100-700ms/figures-no1/temporal_distance_timecourse.png}
+    \vspace{-2mm}
+    \subcaption{Excluding pairs containing numerosity 1}
+  \end{minipage}
+  \caption{Decoding accuracy by numerical distance ($-$100 to
+  700\,ms). Data are from the 24-condition prime-target analysis. Mean
+  decoding accuracy (balanced accuracy, $N = 24$) grouped by
+  target numerical distance. (a)~With all pairs, decoding tends to increase with
+  numerical distance, with the clearest distance-ordered separation in early
+  (80-200\,ms) and mid-latency (340-500\,ms) windows. (b)~Excluding
+  pairs containing numerosity~1 reduces the graded ordering, with the
+  clearest residual gradient limited to approximately 80-120\,ms.}
+  \label{fig:temporal-distance}
+\end{figure}

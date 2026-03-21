@@ -1,0 +1,50 @@
+GEE results for Agent-Agent Attention
+Reference cohort: 7-month-olds
+Participants: 54
+Trials: 147
+
+                                 GEE Regression Results                                 
+========================================================================================
+Dep. Variable:        agent_agent_attention_pct   No. Observations:                  147
+Model:                                      GEE   No. clusters:                       54
+Method:                             Generalized   Min. cluster size:                   1
+                           Estimating Equations   Max. cluster size:                   5
+Family:                                Gaussian   Mean cluster size:                 2.7
+Dependence structure:              Independence   Num. iterations:                     2
+Date:                          Fri, 02 Jan 2026   Scale:                           0.056
+Covariance type:                         robust   Time:                         18:34:44
+===================================================================================================================================
+                                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                           0.0870      0.045      1.946      0.052      -0.001       0.175
+C(cohort, Treatment(reference='7-month-olds'))[T.8-month-olds]     -0.0293      0.056     -0.524      0.600      -0.139       0.080
+C(cohort, Treatment(reference='7-month-olds'))[T.9-month-olds]      0.0752      0.058      1.301      0.193      -0.038       0.188
+C(cohort, Treatment(reference='7-month-olds'))[T.10-month-olds]     0.1438      0.065      2.199      0.028       0.016       0.272
+C(cohort, Treatment(reference='7-month-olds'))[T.11-month-olds]     0.2186      0.078      2.795      0.005       0.065       0.372
+C(cohort, Treatment(reference='7-month-olds'))[T.Adults]            0.1863      0.077      2.420      0.016       0.035       0.337
+==============================================================================
+Skew:                          1.2178   Kurtosis:                       1.3912
+Centered skew:                 0.5319   Centered kurtosis:              1.6482
+==============================================================================
+
+Linear Trend Test (Agent-Agent Attention, infants 7-11 mo)
+
+                                 GEE Regression Results                                 
+========================================================================================
+Dep. Variable:        agent_agent_attention_pct   No. Observations:                  107
+Model:                                      GEE   No. clusters:                       40
+Method:                             Generalized   Min. cluster size:                   1
+                           Estimating Equations   Max. cluster size:                   5
+Family:                                Gaussian   Mean cluster size:                 2.7
+Dependence structure:              Independence   Num. iterations:                     2
+Date:                          Fri, 02 Jan 2026   Scale:                           0.045
+Covariance type:                         robust   Time:                         18:34:44
+===============================================================================
+                  coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -0.3985      0.162     -2.458      0.014      -0.716      -0.081
+age_numeric     0.0629      0.018      3.457      0.001       0.027       0.099
+==============================================================================
+Skew:                          1.4250   Kurtosis:                       2.3049
+Centered skew:                 0.7019   Centered kurtosis:              2.3450
+==============================================================================

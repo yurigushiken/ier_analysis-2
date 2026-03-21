@@ -1,0 +1,45 @@
+Condition: SHOW
+Total transitions counted: 767
+
+Top cohort transition pairs:
+10-month-olds:
+  toy_present -> woman_face: mean 0.64
+  woman_face -> toy_present: mean 0.61
+  man_face -> woman_face: mean 0.39
+  toy_present -> man_face: mean 0.33
+  woman_face -> man_face: mean 0.33
+
+11-month-olds:
+  woman_face -> toy_present: mean 0.77
+  toy_present -> woman_face: mean 0.65
+  toy_present -> man_face: mean 0.42
+  man_face -> woman_face: mean 0.38
+  woman_face -> man_face: mean 0.31
+
+7-month-olds:
+  woman_body -> toy_present: mean 0.65
+  toy_present -> woman_body: mean 0.48
+  toy_present -> man_face: mean 0.39
+  toy_present -> woman_face: mean 0.26
+  man_body -> toy_present: mean 0.26
+
+8-month-olds:
+  woman_face -> toy_present: mean 0.56
+  toy_present -> woman_body: mean 0.48
+  toy_present -> woman_face: mean 0.48
+  woman_body -> toy_present: mean 0.40
+  woman_body -> woman_face: mean 0.32
+
+9-month-olds:
+  toy_present -> woman_face: mean 0.57
+  woman_face -> toy_present: mean 0.52
+  woman_body -> toy_present: mean 0.43
+  toy_present -> man_face: mean 0.35
+  toy_present -> woman_body: mean 0.30
+
+Adults:
+  woman_face -> man_face: mean 0.91
+  man_face -> woman_face: mean 0.76
+  woman_face -> toy_present: mean 0.58
+  toy_present -> man_face: mean 0.56
+  toy_present -> woman_face: mean 0.49

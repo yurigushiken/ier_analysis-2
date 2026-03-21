@@ -1,0 +1,21 @@
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.pdf
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Layout iteration screenshots (regenerated as needed)
+_layout_check/
+
+# Reference paper library (large, keep local only)
+eeg-nn-papers/

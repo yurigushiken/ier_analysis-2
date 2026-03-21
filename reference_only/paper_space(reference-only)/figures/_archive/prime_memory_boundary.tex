@@ -1,0 +1,58 @@
+\begin{figure*}[tb]
+  \centering
+  % Row 1: Prime Memory RDM and MDS
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_rdm__notitle.png}
+    \vspace{-2mm}
+    \subcaption{Prime memory RDM}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_mds__notitle.png}
+    \vspace{-2mm}
+    \subcaption{Prime memory MDS}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_boundary_sweep__notitle.png}
+    \vspace{-2mm}
+    \subcaption{Boundary sweep}
+  \end{minipage}
+
+  \vspace{3mm}
+
+  % Row 2: By system, by target, distance
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_by_system__boundary_4-5__notitle.png}
+    \vspace{-2mm}
+    \subcaption{By system (4-5 boundary)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_by_target__boundary_4-5__notitle.png}
+    \vspace{-2mm}
+    \subcaption{By target (4-5 boundary)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../results/runs-lda/analysis/static_change24_acc1/prime_memory_analysis/static_change24_acc1__prime_memory_distance__boundary_4-5__notitle.png}
+    \vspace{-2mm}
+    \subcaption{Distance effect (4-5 boundary)}
+  \end{minipage}
+  \caption{Prime-memory analysis (24 $\times$ 24 matrix, correct trials,
+  seed 49). (a) Prime memory RDM: pairwise decoding accuracy for
+  distinguishing which prime preceded trials with the same target. Higher
+  values indicate the prime ``ghost trace'' is more discriminable.
+  (b) MDS embedding of prime representations showing PI (2-4) and ANS (5-6)
+  clustering, with ``1'' isolated. (c) Cross-system minus within-PI decoding
+  advantage at each candidate boundary; the 4-5 split yields the largest
+  effect ($p = 0.066$). (d) Mean decoding by system category (chance = 50\%).
+  (e) Per-target breakdown. (f) Decoding accuracy versus prime distance.}
+  \label{fig:prime-memory-boundary}
+\end{figure*}
