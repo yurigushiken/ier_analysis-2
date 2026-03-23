@@ -186,6 +186,15 @@ NODE_LAYOUT = {
     "toy_location": (0.0, 0.6),
 }
 
+NODE_DISPLAY_LABELS = {
+    "man_face": "man_face",
+    "man_body": "man_body",
+    "woman_face": "woman_face",
+    "woman_body": "woman_body",
+    "toy_present": "toy_present",
+    "toy_location": "toy_location",
+}
+
 
 def plot_transition_networks(
     matrix_df: pd.DataFrame,
@@ -223,9 +232,10 @@ def plot_transition_networks(
             continue
         positions = {node: NODE_LAYOUT.get(node, (0.0, 0.0)) for node in G.nodes}
         weights = [max(0.5, edge_data["weight"] * 10) for _, _, edge_data in G.edges(data=True)]
-        fig, ax = plt.subplots(figsize=(6, 5))
-        nx.draw_networkx_nodes(G, positions, node_color="#f4f1de", edgecolors="#333333", node_size=1200, ax=ax)
-        nx.draw_networkx_labels(G, positions, font_size=10, font_weight="bold", ax=ax)
+        fig, ax = plt.subplots(figsize=(7, 5.5))
+        nx.draw_networkx_nodes(G, positions, node_color="#f4f1de", edgecolors="#333333", node_size=1800, ax=ax)
+        display_labels = {node: NODE_DISPLAY_LABELS.get(node, node) for node in G.nodes}
+        nx.draw_networkx_labels(G, positions, labels=display_labels, font_size=9, font_weight="bold", ax=ax)
         nx.draw_networkx_edges(
             G,
             positions,
