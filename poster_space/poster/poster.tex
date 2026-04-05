@@ -9,7 +9,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=custom,width=121.92,height=91.44,scale=0.82]{beamerposter}
+\usepackage[size=custom,width=121.92,height=91.44,scale=0.92]{beamerposter}
 % 48 x 36 inches = 121.92 x 91.44 cm
 \usetheme{gemini}
 \usecolortheme{tccolumbia}
@@ -32,7 +32,7 @@
 % Title
 % ====================
 
-\title{How Infant Looking Patterns to Trivalent Events\\Change from Object to Person Interaction}
+\title{How Infant Looking Patterns to Trivalent Events Change from Object to Person Interaction}
 
 \author{Mischa Gushiken \inst{1} \samelineand Yuexin Li \inst{2} \samelineand Peter Gordon \inst{1}}
 
@@ -51,8 +51,9 @@
 % Logos
 % ====================
 
-\logoleft{\includegraphics[height=7cm]{figures/tc_logo.png}}
-\logoright{\includegraphics[height=5cm]{figures/nyu_logo.png}}
+\logoright{%
+  \includegraphics[height=6.5cm]{figures/tc_logo.png}\hspace{1cm}\includegraphics[height=6cm]{figures/nyu_logo.png}%
+}
 
 % ====================
 % Body
@@ -81,7 +82,7 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.60\colwidth]{figures/gordon2003_fig1.png}
+      \includegraphics[width=0.50\colwidth]{figures/gordon2003_fig1.png}
       \caption{Mapping relations between events and language in the acquisition of verb-argument structure (Gordon, 2003).}
     \end{figure}
 
@@ -99,13 +100,13 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.65\colwidth]{figures/gordon2003_timelapse.png}
+      \includegraphics[width=0.48\colwidth]{figures/gordon2003_timelapse.png}
       \caption{Stimulus video frames from Gordon (2003). Rows show GIVE with toy, GIVE without toy, HUG with toy, and HUG without toy conditions.}
     \end{figure}
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.48\colwidth]{figures/gordon2003_age_changes.png}
+      \includegraphics[width=0.52\colwidth]{figures/gordon2003_age_changes.png}
       \caption{Age-related changes in looking time on test trials for GIVE and HUG across 6, 8, and 10 months (Gordon, 2003).}
     \end{figure}
 
@@ -141,7 +142,7 @@
     Looped videos of GIVE and SHOW events. Rather than traditional screen-based AOIs, we used a custom computer-vision pipeline (\textbf{Eye-Track-ML}; Gushiken, Li, \& Gordon, 2025) to automatically detect and segment event elements frame-by-frame as objects, which we call \textbf{Elements of Interest (EOIs)}.
 
     \begin{center}
-    \begin{minipage}[c]{0.55\colwidth}
+    \begin{minipage}[c]{0.46\colwidth}
       \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{figures/eoi_stimulus.png}
@@ -149,7 +150,7 @@
       \end{figure}
     \end{minipage}%
     \hspace{0.04\colwidth}%
-    \begin{minipage}[c]{0.18\colwidth}
+    \begin{minipage}[c]{0.15\colwidth}
       \centering
       \includegraphics[width=0.75\textwidth]{figures/eyetrackml_qr.png}\\[0.5ex]
       {\scriptsize \textbf{Eye-Track-ML}\\Gushiken et al.,\\2025}
@@ -166,13 +167,13 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.65\colwidth]{figures/give_social_attention.png}
+      \includegraphics[width=0.52\colwidth]{figures/give_social_attention.png}
       \caption{GIVE: Face$\leftrightarrow$Face transitions increase significantly with age ($\beta$=0.053, $p$=.001). By 11 months, infants reached adult levels (20.3\% vs.\ 24.4\%).}
     \end{figure}
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.65\colwidth]{figures/give_motion_tracking.png}
+      \includegraphics[width=0.52\colwidth]{figures/give_motion_tracking.png}
       \caption{GIVE: Toy$\leftrightarrow$Body transitions decrease significantly with age ($\beta$=$-$0.078, $p$=.006).}
     \end{figure}
 
@@ -191,13 +192,13 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.65\colwidth]{figures/show_social_attention.png}
+      \includegraphics[width=0.52\colwidth]{figures/show_social_attention.png}
       \caption{SHOW: Face$\leftrightarrow$Face transitions increase with age ($\beta$=0.033, $p$=.007), but infants \textit{never} reach adult levels (15.8\% vs.\ 34.3\%).}
     \end{figure}
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.65\colwidth]{figures/show_motion_tracking.png}
+      \includegraphics[width=0.52\colwidth]{figures/show_motion_tracking.png}
       \caption{SHOW: Toy$\leftrightarrow$Body transitions decrease with age ($\beta$=$-$0.075, $p$\textless .0001).}
     \end{figure}
 
@@ -224,25 +225,25 @@
       \caption{Summary of linear age trends across GIVE and SHOW conditions.}
     \end{table}
 
-    \textbf{Key insight:} Infants approach adult-like gaze patterns for GIVE by 11 months (gap: 4.1\%) but \textit{not} for SHOW (gap: 18.5\%), paralleling Gordon (2003) habituation findings.
+    Infants approach adult-like gaze patterns for GIVE by 11 months but \textit{not} for SHOW, paralleling Gordon (2003) habituation findings.
 
   \end{alertblock}
 
   \begin{block}{Take-Away}
 
-    \textbf{Infants develop adult-like event parsing for GIVE by 11 months but not for SHOW}, suggesting that \textit{transfer of possession} is understood before \textit{information transfer}. This converges with evidence from looking time (Gordon, 2003) and gaze scanning (present study). The shift from Toy$\leftrightarrow$Body to Face$\leftrightarrow$Face transitions reflects emerging understanding of \textbf{intentionality} and may scaffold verb-argument structure acquisition.
+    \textbf{Infants develop adult-like event parsing for GIVE by 11 months but not for SHOW}, suggesting that \textit{transfer of possession} is understood before \textit{information transfer}. This converges with Gordon (2003), where infants dishabituated to toy removal in GIVE but not SHOW. The shift from Toy$\leftrightarrow$Body to Face$\leftrightarrow$Face transitions may reflect emerging understanding of \textbf{intentionality} and may scaffold verb-argument structure acquisition.
 
   \end{block}
 
   \begin{block}{References}
 
-    \footnotesize
+    \scriptsize
     \begin{itemize}
       \item[] Gordon, P.\ (2003). The origin of argument structure in infant event representations. \textit{Unpublished manuscript.}
       \item[] Goldin-Meadow, S.\ (1985). Language development under atypical learning conditions. In K.\ Nelson (Ed.), \textit{Children's Language, Vol.\ 5.}
-      \item[] Gushiken, M., Li, Y., \& Gordon, P.\ (2025). Eye-Track-ML: A machine learning pipeline for automated frame-by-frame coding of eye-tracking videos. DOI:10.13140/RG.2.2.30558.34882
+      \item[] Gushiken, M., Li, Y., \& Gordon, P.\ (2025). Eye-Track-ML. DOI:10.13140/RG.2.2.30558.34882
       \item[] Golinkoff, R.M.\ (1975). Semantic development in infants. \textit{Merrill-Palmer Quarterly, 21.}
-      \item[] Baldwin, D.A., Baird, J.A., Saylor, M.M., \& Clark, M.A.\ (2001). Infants parse dynamic action. \textit{Child Development, 72.}
+      \item[] Baldwin, D.A.\ et al.\ (2001). Infants parse dynamic action. \textit{Child Development, 72.}
       \item[] Woodward, A.L.\ (1998). Infants selectively encode the goal object of an actor's reach. \textit{Cognition, 69.}
     \end{itemize}
 
