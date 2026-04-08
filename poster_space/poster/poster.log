@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.15)  5 APR 2026 05:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.15)  8 APR 2026 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1263,102 +1263,104 @@ Package pdftex.def Info: figures/nyu_logo.png  used on input line 62.
 (pdftex.def)             Requested size: 170.7093pt x 170.71652pt.
 File: figures/tc_logo.png Graphic file (type png)
 <use figures/tc_logo.png>
-Package pdftex.def Info: figures/tc_logo.png  used on input line 256.
+Package pdftex.def Info: figures/tc_logo.png  used on input line 253.
 (pdftex.def)             Requested size: 184.94678pt x 184.9429pt.
 File: figures/nyu_logo.png Graphic file (type png)
 <use figures/nyu_logo.png>
-Package pdftex.def Info: figures/nyu_logo.png  used on input line 256.
+Package pdftex.def Info: figures/nyu_logo.png  used on input line 253.
 (pdftex.def)             Requested size: 170.7093pt x 170.71652pt.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <22.89> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 256.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 253.
 <figures/gordon2003_fig1.png, id=15, 523.20468pt x 308.65312pt>
 File: figures/gordon2003_fig1.png Graphic file (type png)
 <use figures/gordon2003_fig1.png>
-Package pdftex.def Info: figures/gordon2003_fig1.png  used on input line 256.
+Package pdftex.def Info: figures/gordon2003_fig1.png  used on input line 253.
 (pdftex.def)             Requested size: 520.34927pt x 306.97571pt.
-LaTeX Font Info:    Calculating math sizes for size <22.89> on input line 256.
+LaTeX Font Info:    Calculating math sizes for size <22.89> on input line 253.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22.89> not available
-(Font)              size <24.88> substituted on input line 256.
+(Font)              size <24.88> substituted on input line 253.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <16.02292> not available
-(Font)              size <17.28> substituted on input line 256.
+(Font)              size <17.28> substituted on input line 253.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <11.44499> not available
-(Font)              size <10.95> substituted on input line 256.
+(Font)              size <10.95> substituted on input line 253.
 
-<figures/gordon2003_timelapse.png, id=16, 337.26pt x 289.08pt>
+<figures/gordon2003_timelapse.png, id=16, 449.68pt x 578.16pt>
 File: figures/gordon2003_timelapse.png Graphic file (type png)
 <use figures/gordon2003_timelapse.png>
 Package pdftex.def Info: figures/gordon2003_timelapse.png  used on input line 2
-56.
-(pdftex.def)             Requested size: 499.53085pt x 428.18016pt.
+53.
+(pdftex.def)             Requested size: 499.53085pt x 642.28569pt.
 <figures/gordon2003_age_changes.png, id=17, 575.90157pt x 319.94531pt>
 File: figures/gordon2003_age_changes.png Graphic file (type png)
 <use figures/gordon2003_age_changes.png>
 Package pdftex.def Info: figures/gordon2003_age_changes.png  used on input line
- 256.
+ 253.
 (pdftex.def)             Requested size: 541.1677pt x 300.66075pt.
 <figures/eoi_stimulus.png, id=18, 2354.7975pt x 1830.84pt>
 File: figures/eoi_stimulus.png Graphic file (type png)
 <use figures/eoi_stimulus.png>
-Package pdftex.def Info: figures/eoi_stimulus.png  used on input line 256.
-(pdftex.def)             Requested size: 478.72832pt x 372.19577pt.
+Package pdftex.def Info: figures/eoi_stimulus.png  used on input line 253.
+(pdftex.def)             Requested size: 395.47054pt x 307.46729pt.
 <figures/eyetrackml_qr.png, id=19, 602.25pt x 602.25pt>
 File: figures/eyetrackml_qr.png Graphic file (type png)
 <use figures/eyetrackml_qr.png>
-Package pdftex.def Info: figures/eyetrackml_qr.png  used on input line 256.
+Package pdftex.def Info: figures/eyetrackml_qr.png  used on input line 253.
 (pdftex.def)             Requested size: 117.0738pt x 117.06609pt.
 <figures/give_social_attention.png, id=20, 505.89pt x 361.35pt>
 File: figures/give_social_attention.png Graphic file (type png)
 <use figures/give_social_attention.png>
 Package pdftex.def Info: figures/give_social_attention.png  used on input line 
-256.
+253.
 (pdftex.def)             Requested size: 541.1677pt x 386.55798pt.
-LaTeX Font Info:    Calculating math sizes for size <19.08> on input line 256.
+LaTeX Font Info:    Calculating math sizes for size <19.08> on input line 253.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <19.08> not available
-(Font)              size <20.74> substituted on input line 256.
+(Font)              size <20.74> substituted on input line 253.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.35594> not available
-(Font)              size <14.4> substituted on input line 256.
+(Font)              size <14.4> substituted on input line 253.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <9.54> not available
-(Font)              size <10> substituted on input line 256.
+(Font)              size <10> substituted on input line 253.
 
 <figures/give_motion_tracking.png, id=21, 505.89pt x 361.35pt>
 File: figures/give_motion_tracking.png Graphic file (type png)
 <use figures/give_motion_tracking.png>
 Package pdftex.def Info: figures/give_motion_tracking.png  used on input line 2
-56.
+53.
 (pdftex.def)             Requested size: 541.1677pt x 386.55798pt.
 <figures/show_social_attention.png, id=22, 505.89pt x 361.35pt>
 File: figures/show_social_attention.png Graphic file (type png)
 <use figures/show_social_attention.png>
 Package pdftex.def Info: figures/show_social_attention.png  used on input line 
-256.
+253.
 (pdftex.def)             Requested size: 541.1677pt x 386.55798pt.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <19.08> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 256.
 <figures/show_motion_tracking.png, id=23, 505.89pt x 361.35pt>
 File: figures/show_motion_tracking.png Graphic file (type png)
 <use figures/show_motion_tracking.png>
 Package pdftex.def Info: figures/show_motion_tracking.png  used on input line 2
-56.
+53.
 (pdftex.def)             Requested size: 541.1677pt x 386.55798pt.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <13.25> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 256.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <15.9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 253.
+
+Overfull \vbox (10.23962pt too high) detected at line 253
+ []
+
 File: figures/tc_logo.png Graphic file (type png)
 <use figures/tc_logo.png>
-Package pdftex.def Info: figures/tc_logo.png  used on input line 256.
+Package pdftex.def Info: figures/tc_logo.png  used on input line 253.
 (pdftex.def)             Requested size: 184.94678pt x 184.9429pt.
 File: figures/nyu_logo.png Graphic file (type png)
 <use figures/nyu_logo.png>
-Package pdftex.def Info: figures/nyu_logo.png  used on input line 256.
+Package pdftex.def Info: figures/nyu_logo.png  used on input line 253.
 (pdftex.def)             Requested size: 170.7093pt x 170.71652pt.
 [1{C:/Users/yurig/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/yu
 rig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
@@ -1366,10 +1368,10 @@ rig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 {C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}
 {C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}
  <./figures/tc_logo.png> <./figures/nyu_logo.png> <./figures/gordon2003_fig1.pn
-g> <./figures/gordon2003_timelapse.png> <./figures/gordon2003_age_changes.png> 
-<./figures/eoi_stimulus.png> <./figures/eyetrackml_qr.png> <./figures/give_soci
-al_attention.png> <./figures/give_motion_tracking.png> <./figures/show_social_a
-ttention.png> <./figures/show_motion_tracking.png>]
+g> <./figures/gordon2003_timelapse.png (PNG copy)> <./figures/gordon2003_age_ch
+anges.png> <./figures/eoi_stimulus.png> <./figures/eyetrackml_qr.png> <./figure
+s/give_social_attention.png> <./figures/give_motion_tracking.png> <./figures/sh
+ow_social_attention.png> <./figures/show_motion_tracking.png>]
 \tf@nav=\write6
 \openout6 = `poster.nav'.
 
@@ -1393,13 +1395,13 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23738 strings out of 474479
- 458181 string characters out of 5743591
- 2004542 words of memory out of 5000000
- 45452 multiletter control sequences out of 15000+600000
- 683649 words of font info for 163 fonts, out of 8000000 for 9000
+ 23737 strings out of 474479
+ 458159 string characters out of 5743591
+ 2002542 words of memory out of 5000000
+ 45451 multiletter control sequences out of 15000+600000
+ 683523 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,123p,505b,1102s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,20n,123p,569b,1102s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pf
 b><C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.p
 fb><C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.p
@@ -1407,9 +1409,9 @@ fb><C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8
 a.pfb><C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uh
 vr8a.pfb><C:/Users/yurig/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic
 /uhvro8a.pfb>
-Output written on poster.pdf (1 page, 6330278 bytes).
+Output written on poster.pdf (1 page, 6335001 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 75 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)
  98 words of extra memory for PDF output out of 10000 (max. 10000000)
 
